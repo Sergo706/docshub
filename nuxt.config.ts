@@ -7,10 +7,53 @@ export default defineNuxtConfig({
     './app/assets/css/main.css'
   ],
 
-  routeRules: {
-    '/': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 } },
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false,
+      crawlLinks: true,
+      routes: ['/']
+    },
+    preset: 'github_pages',
   },
 
+  routeRules: {
+    '/docs/**': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 }  },
+    '/blog/**': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 }  },
+    '/': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 } },
+  },
+  
+  app: {
+    head: {
+      title: 'Riavzon | Ecosystem',
+      htmlAttrs: {
+        lang: 'en',
+      },
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
+        { rel: 'apple-touch-icon', type: 'image/png', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/site.webmanifest' }
+      ]
+    }
+  },
+    typescript: {
+    tsConfig: {
+      compilerOptions: {
+        strictNullChecks: true,
+        strict: true
+      }
+    }
+  },
+  site: {
+    url: 'https://docs.riavzon.com',
+    name: 'Riavzon Ecosystem',
+    description: 'Centralized documentation for the Riavzon ecosystem',
+    defaultLocale: 'en',
+  },
+  ogImage: {
+    enabled: true,
+  },
   mdc: {
     highlight: {
       theme: {

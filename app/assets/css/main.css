@@ -1,2 +1,101 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+@theme {
+  --color-riavzon-50: #F3F3F3;
+  --color-riavzon-100: #E7E7E7;
+  --color-riavzon-200: #C2C2C2;
+  --color-riavzon-300: #9D9D9D;
+  --color-riavzon-400: #545454;
+  --color-riavzon-500: #0A0A0A;
+  --color-riavzon-600: #090909;
+  --color-riavzon-700: #060606;
+  --color-riavzon-800: #050505;
+  --color-riavzon-900: #030303;
+  --color-riavzon-950: #020202;
+
+  --color-cream-50: #FFFDF7;
+  --color-cream-100: #FFF9EB;
+  --color-cream-200: #FFF3D6;
+  --color-cream-300: #FFE8B8;
+  --color-cream-400: #FFD88A;
+  --color-cream-500: #F5C864;
+  --color-cream-600: #D4A843;
+  --color-cream-700: #A37F2F;
+  --color-cream-800: #72581F;
+  --color-cream-900: #4A3814;
+  --color-cream-950: #2A1F0A;
+
+  --color-accent-50: #ecfdf5;
+  --color-accent-100: #d1fae5;
+  --color-accent-200: #a7f3d0;
+  --color-accent-300: #6ee7b7;
+  --color-accent-400: #34d399;
+  --color-accent-500: #10b981;
+  --color-accent-600: #059669;
+  --color-accent-700: #047857;
+  --color-accent-800: #065f46;
+  --color-accent-900: #064e3b;
+  --color-accent-950: #022c22;
+}
+
+body {
+  @apply bg-cream-50 text-riavzon-500 antialiased;
+  font-feature-settings: "cv11", "ss01";
+}
+
+.dark body {
+  @apply bg-riavzon-950 text-white/75;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  @apply font-semibold text-riavzon-500;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4 {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+hr {
+  @apply border-riavzon-200;
+}
+
+.dark hr {
+  @apply border-white/10;
+}
+
+a:not([class]) {
+  @apply text-accent-600 hover:text-accent-500 transition-colors;
+}
+
+.dark a:not([class]) {
+  @apply text-accent-400 hover:text-accent-300;
+}
+
+pre {
+  @apply !bg-riavzon-50 !border !border-riavzon-200 !rounded-xl;
+}
+
+.dark pre {
+  @apply !bg-riavzon-900 !border-white/5;
+}
+
+code:not(pre code) {
+  @apply bg-riavzon-100 text-accent-700 px-1.5 py-0.5 rounded-md text-sm;
+}
+
+.dark code:not(pre code) {
+  @apply bg-white/5 text-accent-400;
+}
+
+.glass {
+  @apply bg-cream-50/80 backdrop-blur-2xl border border-riavzon-200 rounded-2xl;
+}
+
+.dark .glass {
+  @apply bg-riavzon-900/30 border-white/10;
+}
