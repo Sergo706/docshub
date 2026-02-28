@@ -1,0 +1,28 @@
+{
+  "name": "docshub",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@nuxt/content": "^3.11.2",
+    "@nuxt/hints": "^1.0.0-alpha.10",
+    "@nuxt/image": "^2.0.0",
+    "@nuxt/ui": "^4.5.0",
+    "@nuxtjs/seo": "^3.4.0",
+    "@sergo/utils": "github:Sergo706/utils",
+    "better-sqlite3": "^12.6.2",
+    "eslint": "^9.39.3",
+    "eslint-config-next": "^16.1.6",
+    "eslint-plugin-vue": "^10.8.0",
+    "nuxt": "^4.3.1",
+    "tailwindcss": "^4.2.1"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.95"
+  }
+}
