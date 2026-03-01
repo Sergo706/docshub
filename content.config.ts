@@ -1,4 +1,5 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
+import { NavigationCollectionSchema } from './shared/types/Navigation'
 
 export default defineContentConfig({
   collections: {
@@ -30,7 +31,6 @@ export default defineContentConfig({
         image: z.string(),
         author: z.string(),
         authorImg: z.string(),
-        image: z.string(),
         date: z.date(),
         readingTime: z.string()
       })
@@ -39,26 +39,8 @@ export default defineContentConfig({
     navigationMenu: defineCollection({
       type: 'data',
       source: 'navigation.json',
-      schema: z.discriminatedUnion("nested", [
-        z.object({
-          nested: z.literal(false), 
-          label: z.string(),
-          icon: z.string().optional(),
-          url: z.string()
-        }),
-        z.object({
-          nested: z.literal(true),
-          label: z.string(),
-          icon: z.string().optional(),
-          children: z.array( 
-            z.object({
-              label: z.string(),
-              icon: z.string().optional(),
-              url: z.string()
-            })
-          )
-        })
-      ])
+      schema: NavigationCollectionSchema
     })
   },
 })
+

@@ -5,6 +5,7 @@ export default defineAppConfig({
       neutral: 'riavzon',
     },
   },
+  appName: 'DocsHub',
   seo: {
     title: 'Riavzon | Ecosystem',
     description: 'Centralized documentation for the Riavzon ecosystem',

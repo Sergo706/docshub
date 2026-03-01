@@ -26,17 +26,17 @@
   --color-cream-900: #4A3814;
   --color-cream-950: #2A1F0A;
 
-  --color-accent-50: #ecfdf5;
-  --color-accent-100: #d1fae5;
-  --color-accent-200: #a7f3d0;
-  --color-accent-300: #6ee7b7;
-  --color-accent-400: #34d399;
-  --color-accent-500: #10b981;
-  --color-accent-600: #059669;
-  --color-accent-700: #047857;
-  --color-accent-800: #065f46;
-  --color-accent-900: #064e3b;
-  --color-accent-950: #022c22;
+  --color-accent-50:  #F2FDFC;
+  --color-accent-100: #E6FBF9;
+  --color-accent-200: #BFF5EF;
+  --color-accent-300: #99EEE5;
+  --color-accent-400: #4DE2D2;
+  --color-accent-500: #00D5BE;
+  --color-accent-600: #00C0AB;
+  --color-accent-700: #008072;
+  --color-accent-800: #006056;
+  --color-accent-900: #004039;
+  --color-accent-950: #002B26;
 }
 
 body {
@@ -98,4 +98,11 @@ code:not(pre code) {
 
 .dark .glass {
   @apply bg-riavzon-900/30 border-white/10;
+}
+
+.dark,
+:root[class~="dark"] {
+  --ui-bg-elevated: #1b1b1b;
+  --color-riavzon-400: #C2C2C2;
+  --color-riavzon-500: #9D9D9D;
 }

@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import type { ContentNavigationItem } from '@nuxt/content';
+import LayoutHeader from './components/Layout/LayoutHeader.vue';
 
-const { data: navigation } = await useAsyncData('navigation', () =>
-  queryCollectionNavigation('content')
-);
-
-provide<Ref<ContentNavigationItem[] | null>>('navigation', navigation);
 </script>
 
 <template>
   <UApp>
-    <NuxtLayout>
-      <NuxtRouteAnnouncer />
-      <NuxtPage />
-    </NuxtLayout>
+    <LayoutHeader />
+    
+    <UMain>
+      <NuxtLayout>
+        <NuxtRouteAnnouncer />
+        <NuxtPage />
+      </NuxtLayout>
+    </UMain>
+
   </UApp>
 </template>

@@ -1,46 +1,49 @@
-[
-  {
-    "nested": false,
-    "label": "Home",
-    "icon": "i-heroicons-home",
-    "url": "/"
-  },
+{
+  "links": [
   {
     "nested": true,
     "label": "Docs",
-    "icon": "i-heroicons-book-open",
+    "icon": "i-lucide-book-open",
+    "to": "/docs",
     "children": [
       {
         "label": "Getting Started",
-        "icon": "i-heroicons-rocket-launch",
-        "url": "/docs/getting-started"
+        "icon": "i-lucide-rocket",
+        "to": "/docs/getting-started"
       },
       {
         "label": "Auth H3 Client",
-        "icon": "i-heroicons-key",
-        "url": "/docs/auth-h3client"
+        "icon": "i-lucide-key-round",
+        "to": "/docs/auth-h3client"
       },
       {
         "label": "IAM",
-        "icon": "i-heroicons-shield-check",
-        "url": "/docs/iam"
+        "icon": "i-lucide-shield-check",
+        "to": "/docs/iam"
       },
       {
         "label": "Bot Detection",
-        "icon": "i-heroicons-cpu-chip",
-        "url": "/docs/bot-detection"
+        "icon": "i-lucide-cpu",
+        "to": "/docs/bot-detection"
       },
       {
         "label": "Utils",
-        "icon": "i-heroicons-wrench-screwdriver",
-        "url": "/docs/utils"
+        "icon": "i-lucide-wrench",
+        "to": "/docs/utils"
       }
     ]
   },
   {
     "nested": false,
     "label": "Blog",
-    "icon": "i-heroicons-pencil-square",
-    "url": "/blog"
+    "icon": "i-lucide-pen-line",
+    "to": "/blog"
+  },
+  {
+    "nested": false,
+    "label": "Website",
+    "icon": "lucide:app-window-mac",
+    "to": "https://riavzon.com"
   }
 ]
+}

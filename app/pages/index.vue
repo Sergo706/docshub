@@ -1,13 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 definePageMeta({
-  layout: 'docs',
+  layout: 'default',
 });
 
 const route = useRoute();
 
-const { data: page } = await useAsyncData('page-' + route.path, () => {
-  return queryCollection('content').path(route.path).first();
+const { data: page } = await useAsyncData('page' + route.path, () => {
+  return queryCollection('landing').first();
 });
 
 if (!page.value) {

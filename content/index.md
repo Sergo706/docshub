@@ -88,20 +88,6 @@ services:
 
 ## MDC Components
 
-### Alerts
-
-::alert{type="info"}
-**Info:** This is an informational alert using the Alert component.
-::
-
-::alert{type="warning"}
-**Warning:** Be careful when modifying authentication middleware.
-::
-
-### Counter
-
-::counter
-::
 
 ---
 
