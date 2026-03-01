@@ -10,7 +10,9 @@ provide<Ref<ContentNavigationItem[] | null>>('navigation', navigation);
 
 <template>
   <UApp>
-    <NuxtRouteAnnouncer />
-    <NuxtPage />
+    <NuxtLayout>
+      <NuxtRouteAnnouncer />
+      <NuxtPage />
+    </NuxtLayout>
   </UApp>
 </template>

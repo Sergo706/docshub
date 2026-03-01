@@ -1,0 +1,46 @@
+[
+  {
+    "nested": false,
+    "label": "Home",
+    "icon": "i-heroicons-home",
+    "url": "/"
+  },
+  {
+    "nested": true,
+    "label": "Docs",
+    "icon": "i-heroicons-book-open",
+    "children": [
+      {
+        "label": "Getting Started",
+        "icon": "i-heroicons-rocket-launch",
+        "url": "/docs/getting-started"
+      },
+      {
+        "label": "Auth H3 Client",
+        "icon": "i-heroicons-key",
+        "url": "/docs/auth-h3client"
+      },
+      {
+        "label": "IAM",
+        "icon": "i-heroicons-shield-check",
+        "url": "/docs/iam"
+      },
+      {
+        "label": "Bot Detection",
+        "icon": "i-heroicons-cpu-chip",
+        "url": "/docs/bot-detection"
+      },
+      {
+        "label": "Utils",
+        "icon": "i-heroicons-wrench-screwdriver",
+        "url": "/docs/utils"
+      }
+    ]
+  },
+  {
+    "nested": false,
+    "label": "Blog",
+    "icon": "i-heroicons-pencil-square",
+    "url": "/blog"
+  }
+]

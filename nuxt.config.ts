@@ -1,6 +1,8 @@
-
 export default defineNuxtConfig({
-  modules: ['@nuxt/content', '@nuxt/ui', '@nuxt/image', '@nuxt/fonts', '@nuxt/hints', '@nuxtjs/seo'],
+  modules: ['@nuxt/content', '@nuxt/ui', '@nuxt/image', '@nuxt/fonts', '@nuxt/hints', '@nuxtjs/seo', '@vueuse/nuxt'],
+  imports: {
+    scan: false,
+  },
   devtools: { enabled: true },
   compatibilityDate: '2024-04-03',
   css: [
@@ -34,6 +36,12 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
         { rel: 'apple-touch-icon', type: 'image/png', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'manifest', href: '/site.webmanifest' }
+      ],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+        { name: 'charset', content: 'utf-8' },
+        { name: 'robots', content: 'index, follow' },
+        { name: 'color-scheme', content: 'light dark' },
       ]
     }
   },
