@@ -27,26 +27,12 @@ const groups = [{
 </script>
 
 <template>
-  <UButton
-    color="neutral"
+  <UContentSearchButton
+    :collapsed="true"
     variant="ghost"
     icon="i-lucide-search"
     @click="open = true"
-  >
-    <template #trailing>
-      <span class="hidden lg:flex items-center gap-0.5">
-        <UKbd
-          value="meta"
-          size="sm"
-        />
-
-        <UKbd
-          value="K"
-          size="sm"
-        />
-      </span>
-    </template>
-  </UButton>
+  />
       
   <ClientOnly>
     <LazyUContentSearch
