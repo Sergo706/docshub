@@ -1,18 +1,18 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@theme {
-  --color-riavzon-50: #fafafa;
-  --color-riavzon-100: #f5f5f5;
-  --color-riavzon-200: #e5e5e5;
-  --color-riavzon-300: #d4d4d4;
-  --color-riavzon-400: #a3a3a3;
-  --color-riavzon-500: #737373;
-  --color-riavzon-600: #525252;
-  --color-riavzon-700: #404040;
-  --color-riavzon-800: #262626;
-  --color-riavzon-900: #171717;
-  --color-riavzon-950: #090909;
+@theme static {
+  --color-riavzon-50: #F3F3F3;
+  --color-riavzon-100: #E7E7E7;
+  --color-riavzon-200: #C2C2C2;
+  --color-riavzon-300: #9D9D9D;
+  --color-riavzon-400: #545454;
+  --color-riavzon-500: #0A0A0A;
+  --color-riavzon-600: #090909;
+  --color-riavzon-700: #060606;
+  --color-riavzon-800: #050505;
+  --color-riavzon-900: #030303;
+  --color-riavzon-950: #020202;
 
   --color-cream-50: #FFFDF7;
   --color-cream-100: #FFF9EB;
@@ -39,6 +39,30 @@
   --color-accent-950: #002B26;
 }
 
+:root.dark {
+    --color-riavzon-50: #fafafa;
+    --color-riavzon-100: #f5f5f5;
+    --color-riavzon-200: #e5e5e5;
+    --color-riavzon-300: #d4d4d4;
+    --color-riavzon-400: #a3a3a3;
+    --color-riavzon-500: #737373;
+    --color-riavzon-600: #525252;
+    --color-riavzon-700: #404040;
+    --color-riavzon-800: #262626;
+    --color-riavzon-900: #171717;
+    --color-riavzon-950: #090909;
+    --ui-bg: var(--color-riavzon-950);
+    --ui-bg-muted: var(--color-riavzon-900);
+    --ui-bg-elevated: var(--color-riavzon-800);
+    --ui-bg-accented: var(--color-riavzon-700);
+    --ui-border: var(--color-riavzon-800);
+    --ui-border-muted: var(--color-riavzon-700);
+    --ui-border-accented: var(--color-riavzon-700);
+    --ui-text-dimmed: var(--color-riavzon-400);
+    --ui-text-muted: var(--color-riavzon-400);
+    --ui-text-toned: var(--color-riavzon-600);
+}
+
 body {
   @apply bg-cream-50 text-riavzon-500 antialiased;
   font-feature-settings: "cv11", "ss01";
@@ -48,7 +72,6 @@ body {
   @apply bg-riavzon-950 text-white/75;
 }
 
-/* Headings */
 h1, h2, h3, h4 {
   @apply font-semibold text-riavzon-500;
 }
@@ -103,6 +126,4 @@ code:not(pre code) {
 .dark,
 :root[class~="dark"] {
   --ui-bg-elevated: #1b1b1b;
-  --color-riavzon-400: #C2C2C2;
-  --color-riavzon-500: #9D9D9D;
 }
