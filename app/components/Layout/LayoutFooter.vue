@@ -4,7 +4,7 @@ import type { NavigationMenuItem } from '@nuxt/ui';
 import type { NavigationCollection } from '~~/shared/types/Navigation';
 const route = useRoute();
 
-const { data: navLinks } = await useAsyncData<NavigationCollection>('navLinks', async () => {
+const { data: navLinks } = await useAsyncData<NavigationCollection>('navLinks_footer', async () => {
   return await queryCollection('navigationMenu').first() as unknown as NavigationCollection;
 });
 

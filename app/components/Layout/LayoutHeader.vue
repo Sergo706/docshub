@@ -49,10 +49,28 @@ const items = computed<NavigationMenuItem[]>(() => {
 
   return baseItems;
 });
+
+const moduleLinks = computed(() => {
+  if (!navLinks.value?.links) return [];
+
+  const docsLink = navLinks.value.links.find(link => link.nested && link.to === '/docs') as { nested: true, children: NavigationMenuItem[] } | undefined;
+  
+  if (docsLink?.children) {
+    return docsLink.children.map((child: NavigationMenuItem) => ({
+      label: child.label,
+      icon: child.icon as string,
+      to: child.to as string,
+      active: route.path.startsWith(child.to as string)
+    }));
+  }
+  
+  return [];
+});
+
 </script>
 
 <template>
-  <UHeader>
+  <UHeader class="bg-cream-50/90 dark:bg-riavzon-950/90">
     <template #title>
       <LayoutLogo :is-text="true" />
     </template>
@@ -88,6 +106,22 @@ const items = computed<NavigationMenuItem[]>(() => {
         orientation="vertical" 
         class="-mx-2.5" 
       />
+    </template>
+    
+    <template
+      v-if="route.path.startsWith('/docs')"
+      #bottom
+    >
+      <div class="bg-cream-50/90 dark:bg-riavzon-950/90 backdrop-blur border-b border-default px-4 sm:px-6 ">
+        <UContainer class="flex justify-start">
+          <UNavigationMenu 
+            :items="moduleLinks" 
+            variant="link"
+            highlight
+            class="-mb-px" 
+          />
+        </UContainer>
+      </div>
     </template>
   </UHeader>
 </template>

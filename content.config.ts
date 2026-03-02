@@ -11,8 +11,9 @@ export default defineContentConfig({
         exclude: ['blog/**', 'index.md']
       },
       schema: z.object({
-        icon: z.string(),
+        icon: z.string().optional(),
         module: z.string().optional(),
+        rawbody: z.string().optional()
       }),
     }),
 
@@ -32,7 +33,8 @@ export default defineContentConfig({
         author: z.string(),
         authorImg: z.string(),
         date: z.date(),
-        readingTime: z.string()
+        readingTime: z.string(),
+        rawbody: z.string().optional()
       })
     }),
 

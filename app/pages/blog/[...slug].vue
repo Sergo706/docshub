@@ -13,14 +13,11 @@ definePageMeta({
   layout: 'blog'
 });
 
-useSeoMeta({
-  title: page.value.title,
-  description: page.value.description
-});
 </script>
 
 <template>
   <UContainer v-if="page">
+    <Meta :page />
     <UPage>
       <UPageHeader :title="page.title" :description="page.description" />
       <UPageBody prose>

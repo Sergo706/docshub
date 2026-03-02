@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 const route = useRoute();
+
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('docs').path(route.path).first();
 });
@@ -13,20 +14,11 @@ definePageMeta({
   layout: 'docs'
 });
 
-useSeoMeta({
-  title: page.value.title,
-  description: page.value.description
-});
 </script>
 
 <template>
-  <UPage v-if="page">
-    <UPageHeader
-      :title="page.title"
-      :description="page.description"
-    />
-    <UPageBody prose>
-      <ContentRenderer :value="page" />
-    </UPageBody>
-  </UPage>
+  <template v-if="page">
+    <Meta :page />
+    <ContentRenderer :value="page" />
+  </template>
 </template>

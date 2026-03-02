@@ -59,11 +59,16 @@ export default defineNuxtConfig({
   ogImage: {
     enabled: true,
   },
-  mdc: {
-    highlight: {
-      theme: {
-        default: 'github-light',
-        dark: 'github-dark'
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: 'light-plus',
+            light: 'light-plus',
+            dark: 'dracula'
+          },
+        }
       }
     }
   }

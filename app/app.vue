@@ -8,7 +8,8 @@ import LayoutHeader from './components/Layout/LayoutHeader.vue';
   <UApp>
     <LayoutHeader />
 
-    <UMain>
+    
+    <UMain class="pt-[calc(var(--ui-header-height))]">
       <NuxtLayout>
         <NuxtRouteAnnouncer />
         <NuxtPage />
