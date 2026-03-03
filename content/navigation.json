@@ -9,27 +9,32 @@
       {
         "label": "Getting Started",
         "icon": "i-lucide-rocket",
-        "to": "/docs/getting-started"
+        "to": "/docs/getting-started",
+        "github": "https://github.com/Sergo706/docshub"
       },
       {
         "label": "Auth H3 Client",
         "icon": "i-lucide-key-round",
-        "to": "/docs/auth-h3client"
+        "to": "/docs/auth-h3client",
+        "github": "https://github.com/Sergo706/auth-h3client"
       },
       {
         "label": "IAM",
         "icon": "i-lucide-shield-check",
-        "to": "/docs/iam"
+        "to": "/docs/iam",
+        "github": "https://github.com/Sergo706/auth"
       },
       {
         "label": "Bot Detection",
         "icon": "i-lucide-cpu",
-        "to": "/docs/bot-detection"
+        "to": "/docs/bot-detection",
+        "github": "https://github.com/Sergo706/bot-detector"
       },
       {
         "label": "Utils",
         "icon": "i-lucide-wrench",
-        "to": "/docs/utils"
+        "to": "/docs/utils",
+        "github": "https://github.com/Sergo706/utils"
       }
     ]
   },

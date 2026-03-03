@@ -3,7 +3,8 @@ import { z } from 'zod';
 export const NavigationItemSchema = z.object({
   label: z.string(),
   icon: z.string().optional(),
-  to: z.string()
+  to: z.string(),
+  github: z.string().optional()
 });
 
 const BaseNavigationMenuSchema = NavigationItemSchema.extend({

@@ -2,6 +2,11 @@
 import LayoutFooter from './components/Layout/LayoutFooter.vue';
 import LayoutHeader from './components/Layout/LayoutHeader.vue';
 
+const { data: navLinks } = await useAsyncData<NavigationCollection>('navLinks', async () => {
+  return await queryCollection('navigationMenu').first() as unknown as NavigationCollection;
+});
+provide('navLinks', navLinks.value);
+
 </script>
 
 <template>

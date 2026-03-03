@@ -4,16 +4,15 @@ import type { NavigationCollection } from '~~/shared/types/Navigation';
 import LayoutSearch from './LayoutSearch.vue';
 const route = useRoute();
 
-const { data: navLinks } = await useAsyncData<NavigationCollection>('navLinks', async () => {
-  return await queryCollection('navigationMenu').first() as unknown as NavigationCollection;
-});
 
 
+const navLinks = inject<NavigationCollection>('navLinks');
+  
 const items = computed<NavigationMenuItem[]>(() => {
   const baseItems: NavigationMenuItem[] = [];
 
-  if (navLinks.value?.links) {
-    const rawLinks = navLinks.value.links;
+  if (navLinks?.links) {
+    const rawLinks = navLinks.links;
     
     baseItems.push(...rawLinks.map((link): NavigationMenuItem => {
       if (link.nested) {
@@ -51,9 +50,9 @@ const items = computed<NavigationMenuItem[]>(() => {
 });
 
 const moduleLinks = computed(() => {
-  if (!navLinks.value?.links) return [];
+  if (!navLinks?.links) return [];
 
-  const docsLink = navLinks.value.links.find(link => link.nested && link.to === '/docs') as { nested: true, children: NavigationMenuItem[] } | undefined;
+  const docsLink = navLinks.links.find(link => link.nested && link.to === '/docs') as { nested: true, children: NavigationMenuItem[] } | undefined;
   
   if (docsLink?.children) {
     return docsLink.children.map((child: NavigationMenuItem) => ({

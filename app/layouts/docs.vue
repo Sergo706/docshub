@@ -5,47 +5,47 @@ import type { PageLink } from '@nuxt/ui';
 import { parsePath } from 'ufo';
 
 const route = useRoute();
-const path = computed(() => parsePath(route.path).pathname);
+
+const baseNavPath = computed(() => {
+  const parts = parsePath(route.path).pathname.split('/');
+  return parts.slice(0, 3).join('/');
+});
+
+const navData = inject<NavigationCollection>('navLinks');
+const docsCategory = navData?.links.find(l => l.label === 'Docs');
+
+if (!docsCategory) {
+  throw createError({
+    status: 500,
+    message: 'Server error',
+    data: 'docsCategory is undefined'
+  });
+}
 
 const pathLink = computed(() => {
-  if (path.value.includes('/docs/auth-h3client')) {
-      return {
-        navPath: '/docs/auth-h3client',
-        gitHubLink: 'https://github.com/Sergo706/auth-h3client',
-        headLine: 'Auth H3 Client'
-      }; 
-  } else if (path.value.includes('/docs/iam')) {
-      return {
-        navPath: '/docs/iam',
-        gitHubLink: 'https://github.com/Sergo706/auth',
-        headLine: 'IAM'
-      };
-  } else if(path.value.includes('/docs/bot-detection')) {
+  if ('children' in docsCategory && Array.isArray(docsCategory.children)) {
+    const children = docsCategory.children;
+    const activeNavItem = children.find(child => child.to === baseNavPath.value);
+    
     return {
-        navPath: '/docs/bot-detection',
-        gitHubLink: 'https://github.com/Sergo706/bot-detector',
-        headLine: 'Bot Detection'
-    };
-  } else if (path.value.includes('/docs/utils')) {
-    return {
-        navPath: '/docs/utils',
-        gitHubLink: 'https://github.com/Sergo706/utils',
-        headLine: 'Utils'
-    };
-  } else {
-    return {
-        navPath: '/docs/getting-started',
-        gitHubLink: 'https://github.com/Sergo706/docshub',
-        headLine: 'Overview'
+      navPath: baseNavPath.value,
+      gitHubLink: activeNavItem?.github ?? 'https://github.com/Sergo706/docshub',
+      headLine: activeNavItem?.label ?? 'Overview',
     };
   }
+
+  return {
+    navPath: baseNavPath.value,
+    gitHubLink: 'https://github.com/Sergo706/docshub',
+    headLine: 'Overview',
+  };
 });
 
 const { data } = await useAsyncData<[ContentNavigationItem[], DocsCollectionItem | null, ContentNavigationItem[]]>(`${route.path}_layout`, async () => {
  const data = await Promise.all([
     queryCollectionNavigation('docs').where('path', 'LIKE', `%${pathLink.value.navPath}%`),
     queryCollection('docs').path(route.path).first(),
-    queryCollectionItemSurroundings('docs', route.path)
+    queryCollectionItemSurroundings('docs', route.path).where('path', 'LIKE', `%${pathLink.value.navPath}%`)
   ]);
   return data;
 }, { watch: [() => route.path] });
@@ -106,7 +106,7 @@ const links = computed<PageLink[]>(() => [{
       <UPageBody as="section">
         <slot />
 
-        <USeparator />
+        <USeparator v-if="surround.length > 0" />
 
         <UContentSurround :surround="surround" />
       </UPageBody>

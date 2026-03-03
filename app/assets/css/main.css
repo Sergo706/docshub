@@ -56,7 +56,7 @@
     --ui-bg-elevated: var(--color-riavzon-800);
     --ui-bg-accented: var(--color-riavzon-700);
     --ui-border: var(--color-riavzon-800);
-    --ui-border-muted: var(--color-riavzon-900);
+    --ui-border-muted: var(--color-riavzon-700);
     --ui-border-accented: var(--color-riavzon-700);
     --ui-text-dimmed: var(--color-riavzon-400);
     --ui-text-muted: var(--color-riavzon-300);
@@ -123,7 +123,7 @@ code:not(pre code) {
   @apply bg-riavzon-900/30 border-white/10;
 }
 
-.dark,
-:root[class~="dark"] {
-  --ui-bg-elevated: #1b1b1b;
+:root {
+  --ui-border: var(--color-riavzon-300);
+  --ui-bg-elevated: var(--color-cream-100);
 }
