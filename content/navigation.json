@@ -4,37 +4,47 @@
     "nested": true,
     "label": "Docs",
     "icon": "i-lucide-book-open",
-    "to": "/docs",
+    "to": "/docs/getting-started",
     "children": [
       {
         "label": "Getting Started",
         "icon": "i-lucide-rocket",
         "to": "/docs/getting-started",
-        "github": "https://github.com/Sergo706/docshub"
+        "description": "An introduction to help you understand the core components.",
+        "github": "https://github.com/Sergo706/docshub",
+        "badge": "Start Here"
       },
       {
         "label": "Auth H3 Client",
         "icon": "i-lucide-key-round",
         "to": "/docs/auth-h3client",
-        "github": "https://github.com/Sergo706/auth-h3client"
+        "description": "Seamlessly enforce OAuth 2.0 authentication and session management integrated directly as the client of the IAM module.",
+        "github": "https://github.com/Sergo706/auth-h3client",
+        "badge": "Core"
       },
       {
         "label": "IAM",
         "icon": "i-lucide-shield-check",
         "to": "/docs/iam",
-        "github": "https://github.com/Sergo706/auth"
+        "description": "Identity and Access Management featuring granular roles, permissions, and security policies.",
+        "github": "https://github.com/Sergo706/auth",
+        "badge": "Core"
       },
       {
         "label": "Bot Detection",
         "icon": "i-lucide-cpu",
         "to": "/docs/bot-detection",
-        "github": "https://github.com/Sergo706/bot-detector"
+        "description": "Advanced behavioral analysis and request fingerprinting to stop malicious automated traffic.",
+        "github": "https://github.com/Sergo706/bot-detector",
+        "badge": "Security"
       },
       {
         "label": "Utils",
         "icon": "i-lucide-wrench",
         "to": "/docs/utils",
-        "github": "https://github.com/Sergo706/utils"
+        "description": "A standard library of highly optimized helpers for formatting, validation, and core logic.",
+        "github": "https://github.com/Sergo706/utils",
+        "badge": "Library"
       }
     ]
   },

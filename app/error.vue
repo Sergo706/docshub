@@ -3,7 +3,7 @@
 import type { NuxtError } from '#app';
 
 
-const props = defineProps<{ error: NuxtError }>();
+defineProps<{ error: NuxtError }>();
 
 function handleError() {
   void clearError({ redirect: '/' });
@@ -14,14 +14,11 @@ function goBack() {
   useRouter().back();
 }
 
-// DEBUG 
-// TODO: Remove in prod
-console.log(props.error);
 </script>
 
 <template>
   <NuxtLayout name="default">
-    <main class="grid min-h-full place-items-center bg-black px-6 py-24 sm:py-32 lg:px-8">
+    <main class="grid min-h-full m-auto place-items-center bg-default px-6 py-24 sm:py-32 lg:px-8">
       <div class="text-center">
         <p class="text-accent text-base font-semibold">
           {{ error.status }}

@@ -11,20 +11,17 @@ const baseNavPath = computed(() => {
   return parts.slice(0, 3).join('/');
 });
 
-const navData = inject<NavigationCollection>('navLinks');
-const docsCategory = navData?.links.find(l => l.label === 'Docs');
+const sidebarDocsNavigation = inject<Ref<ContentNavigationItem[]>>('sidebar_docs_navigation');
+const navData = inject<Ref<NavigationCollection>>('navLinks');
 
-if (!docsCategory) {
-  throw createError({
-    status: 500,
-    message: 'Server error',
-    data: 'docsCategory is undefined'
-  });
-}
+const docsCategory = computed(() => {
+  return navData?.value.links.find(l => l.label === 'Docs');
+});
 
 const pathLink = computed(() => {
-  if ('children' in docsCategory && Array.isArray(docsCategory.children)) {
-    const children = docsCategory.children;
+  const category = docsCategory.value;
+  if (category && 'children' in category && Array.isArray(category.children)) {
+    const children = category.children;
     const activeNavItem = children.find(child => child.to === baseNavPath.value);
     
     return {
@@ -41,24 +38,32 @@ const pathLink = computed(() => {
   };
 });
 
-const { data } = await useAsyncData<[ContentNavigationItem[], DocsCollectionItem | null, ContentNavigationItem[]]>(`${route.path}_layout`, async () => {
- const data = await Promise.all([
-    queryCollectionNavigation('docs').where('path', 'LIKE', `%${pathLink.value.navPath}%`),
-    queryCollection('docs').path(route.path).first(),
-    queryCollectionItemSurroundings('docs', route.path).where('path', 'LIKE', `%${pathLink.value.navPath}%`)
-  ]);
-  return data;
-}, { watch: [() => route.path] });
+const { data: pageData } = await useAsyncData<DocsCollectionItem | null>(
+  `${route.path}_page`,
+  () => queryCollection('docs').path(route.path).first(),
+  { watch: [() => route.path] }
+);
+
+const { data: surroundData } = await useAsyncData<ContentNavigationItem[]>(
+  `${route.path}_surround`,
+  () => queryCollectionItemSurroundings('docs', route.path)
+    .where('path', 'LIKE', `%${pathLink.value.navPath}%`),
+  { watch: [() => route.path] }
+);
 
 const navigation = computed(() => {
-  const navArray = data.value?.[0];
+  const navArray = sidebarDocsNavigation?.value;
   if (!navArray || navArray.length === 0) return [];
-  
 
   return navArray[0]?.children ?? navArray;
 });
-const page = computed(() => data.value?.[1] ?? null);
-const surround = computed(() => data.value?.[2] ?? []);
+
+const page = computed(() => pageData.value ?? null);
+const surround = computed(() => {
+  const raw = surroundData.value;
+  if (!raw) return [];
+  return Array.isArray(raw) ? raw : [raw];
+});
 
 const links = computed<PageLink[]>(() => [{
   icon: 'i-lucide-file-pen',
@@ -79,13 +84,15 @@ const links = computed<PageLink[]>(() => [{
     <UPage
       v-if="page"
       as="article"
+      class="[--ui-header-height:64px] lg:[--ui-header-height:112px]"
     >
       <template #left>
-        <UPageAside class="!top-[calc(var(--ui-header-height)+30px)] !h-[calc(100vh-(var(--ui-header-height)+30px))]">
+        <UPageAside :key="route.path">
           <UContentNavigation 
             variant="link"
             highlight
             :navigation="navigation" 
+            :default-open="true"
           />
         </UPageAside>
       </template>
@@ -115,7 +122,6 @@ const links = computed<PageLink[]>(() => [{
         <UContentToc
           highlight
           :links="page.body?.toc?.links"
-          class="!top-[calc(var(--ui-header-height)+30px)] !h-[calc(100vh-(var(--ui-header-height)+30px))]"
         > 
           <template #bottom>
             <USeparator type="dashed" />

@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 definePageMeta({
-  layout: 'blog'
+  layout: 'default'
 });
 </script>
 

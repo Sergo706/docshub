@@ -4,7 +4,9 @@ export const NavigationItemSchema = z.object({
   label: z.string(),
   icon: z.string().optional(),
   to: z.string(),
-  github: z.string().optional()
+  description: z.string().optional(),
+  github: z.string().optional(),
+  badge: z.string().optional()
 });
 
 const BaseNavigationMenuSchema = NavigationItemSchema.extend({

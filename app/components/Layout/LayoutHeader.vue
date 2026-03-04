@@ -2,57 +2,18 @@
 import type { NavigationMenuItem } from '@nuxt/ui';
 import type { NavigationCollection } from '~~/shared/types/Navigation';
 import LayoutSearch from './LayoutSearch.vue';
+import type { ContentNavigationItem } from '@nuxt/content';
 const route = useRoute();
 
 
 
-const navLinks = inject<NavigationCollection>('navLinks');
-  
-const items = computed<NavigationMenuItem[]>(() => {
-  const baseItems: NavigationMenuItem[] = [];
-
-  if (navLinks?.links) {
-    const rawLinks = navLinks.links;
-    
-    baseItems.push(...rawLinks.map((link): NavigationMenuItem => {
-      if (link.nested) {
-        return {
-          label: link.label,
-          icon: link.icon,
-          to: link.to,
-          active: route.path.startsWith(link.to),
-          target: '_blank',
-          children: link.children.map((child): NavigationMenuItem => ({
-            label: child.label,
-            icon: child.icon,
-            to: child.to,
-          })),
-        };
-      }
-
-      return {
-        label: link.label,
-        icon: link.icon,
-        to: link.to,
-        active: route.path === link.to,
-      };
-    }));
-  }
-  baseItems.push({
-    label: 'GitHub',
-    icon: 'i-lucide-github',
-    to: 'https://github.com/Sergo706/docshub',
-    target: '_blank',
-    class: 'lg:hidden'
-  });
-
-  return baseItems;
-});
+const navLinks = inject<Ref<NavigationCollection>>('navLinks');
+const sidebarDocsNavigation = inject<Ref<ContentNavigationItem[]>>('sidebar_docs_navigation');
 
 const moduleLinks = computed(() => {
-  if (!navLinks?.links) return [];
+  if (!navLinks?.value.links) return [];
 
-  const docsLink = navLinks.links.find(link => link.nested && link.to === '/docs') as { nested: true, children: NavigationMenuItem[] } | undefined;
+  const docsLink = navLinks.value.links.find(link => link.nested && link.to.startsWith('/docs')) as { nested: true, children: NavigationMenuItem[] } | undefined;
   
   if (docsLink?.children) {
     return docsLink.children.map((child: NavigationMenuItem) => ({
@@ -66,16 +27,75 @@ const moduleLinks = computed(() => {
   return [];
 });
 
+
+const desktopItems = computed<NavigationMenuItem[]>(() => {
+  if (!navLinks?.value.links) return [];
+  return navLinks.value.links.map((link): NavigationMenuItem => ({
+    label: link.label,
+    icon: link.icon,
+    to: link.to,
+    active: link.nested ? route.path.startsWith(link.to) : route.path === link.to,
+  }));
+});
+
+const mobileItems = computed<NavigationMenuItem[]>(() => {
+  if (!navLinks?.value.links) return [];
+
+  const items = navLinks.value.links.flatMap((link): NavigationMenuItem[] => {
+    if (link.nested && link.label.startsWith('Docs')) {
+      return link.children.map((child): NavigationMenuItem => ({
+        label: child.label,
+        icon: child.icon,
+        to: child.to,
+      }));
+    }
+
+    const parentItem: NavigationMenuItem = {
+      label: link.label,
+      icon: link.icon,
+      to: link.to,
+      active: link.nested ? route.path.startsWith(link.to) : route.path === link.to,
+    };
+
+    if (link.nested) {
+      const childItems = link.children.map((child): NavigationMenuItem => ({
+        label: child.label,
+        icon: child.icon,
+        to: child.to,
+      }));
+      return [parentItem, ...childItems];
+    }
+    
+    return [parentItem];
+  });
+
+  items.push({
+    label: 'GitHub',
+    icon: 'i-lucide-github',
+    to: 'https://github.com/Sergo706/docshub',
+    target: '_blank',
+  });
+  
+  return items;
+});
+
+const navigation = computed(() => {
+  const navArray = sidebarDocsNavigation?.value;
+  if (!navArray || navArray.length === 0) return [];
+
+  return navArray[0]?.children ?? navArray;
+});
+
 </script>
 
 <template>
-  <UHeader class="bg-cream-50/90 dark:bg-riavzon-950/90">
+  <UHeader class="bg-cream-50/90 backdrop-blur dark:bg-riavzon-950/90">
     <template #title>
       <LayoutLogo :is-text="true" />
     </template>
 
     <UNavigationMenu 
-      :items="items" 
+      :items="desktopItems" 
       content-orientation="vertical"
     />
 
@@ -99,11 +119,23 @@ const moduleLinks = computed(() => {
         class="hidden lg:flex"
       />
     </template>
+    
     <template #body>
       <UNavigationMenu 
-        :items="items" 
+        :items="mobileItems"  
         orientation="vertical" 
         class="-mx-2.5" 
+      />
+      <USeparator 
+        type="dashed"
+        decorative
+        class="mt-5 mb-5"
+      />
+      <UContentNavigation 
+        variant="link"
+        highlight
+        :navigation="navigation" 
+        :default-open="true"
       />
     </template>
     
@@ -111,7 +143,7 @@ const moduleLinks = computed(() => {
       v-if="route.path.startsWith('/docs')"
       #bottom
     >
-      <div class="bg-cream-50/90 dark:bg-riavzon-950/90 backdrop-blur border-b border-default px-4 sm:px-6 ">
+      <div class="!hidden lg:!block bg-cream-50/90 dark:bg-riavzon-950/90 backdrop-blur border-b border-default px-4 sm:px-6">
         <UContainer class="flex justify-start">
           <UNavigationMenu 
             :items="moduleLinks" 

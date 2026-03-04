@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   css: [
     './app/assets/css/main.css'
   ],
-
+  
   nitro: {
     prerender: {
       autoSubfolderIndex: false,
@@ -14,7 +14,19 @@ export default defineNuxtConfig({
     },
     preset: 'github_pages',
   },
-
+  icon: {
+    customCollections: [
+      {
+        prefix: 'custom',
+        dir: './app/assets/icons',
+      },
+    ],
+    clientBundle: {
+      scan: true,
+      includeCustomCollections: true,
+    },
+    provider: 'iconify',
+  },
   routeRules: {
     '/docs/**': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 }  },
     '/blog/**': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 }  },

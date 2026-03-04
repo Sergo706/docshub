@@ -127,3 +127,9 @@ code:not(pre code) {
   --ui-border: var(--color-riavzon-300);
   --ui-bg-elevated: var(--color-cream-100);
 }
+@utility absolute-center {
+  position: absolute;
+  transform: translate(-50%, 50%);
+  top: 50%;
+  left: 50%;
+}

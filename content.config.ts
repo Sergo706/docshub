@@ -1,5 +1,6 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
 import { NavigationCollectionSchema } from './shared/types/Navigation'
+import { MetaDataSchema } from './shared/types/MetaData'
 
 export default defineContentConfig({
   collections: {
@@ -42,6 +43,12 @@ export default defineContentConfig({
       type: 'data',
       source: 'navigation.json',
       schema: NavigationCollectionSchema
+    }),
+    
+    metadata: defineCollection({
+      type: 'data',
+      source: 'metadata.json',
+      schema: MetaDataSchema
     })
   },
 })

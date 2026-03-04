@@ -59,7 +59,6 @@ Start the Nuxt development server:
 npm run dev
 ```
 
-:read-more{to="/docs/getting-started/2.configuration"}
 
 ## Next Steps
 

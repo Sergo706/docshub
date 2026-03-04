@@ -1,0 +1,79 @@
+{
+  "featuresMetaData": {
+    "featuresTitle": "Ecosystem Capabilities",
+    "featuresDescription": "Discover the powerful features that make up the Riavzon security and authentication infrastructure.",
+    "features": [
+      {
+        "title": "Centralized Identity Management",
+        "description": "Complete signup, login, and comprehensive user session management providing a robust single source of truth for your applications.",
+        "icon": "i-lucide-users",
+        "to": "/docs/auth"
+      },
+      {
+        "title": "Advanced Bot Defense",
+        "description": "Multi-layered traffic analysis that intelligently identifies and blocks sophisticated scrapers while permitting known search engines.",
+        "icon": "i-lucide-bot",
+        "to": "/docs/bot-detector"
+      },
+      {
+        "title": "Robust Token Architecture",
+        "description": "Enterprise-grade JWT security utilizing long-lived hashed refresh tokens alongside fast, stateless, short-lived access tokens.",
+        "icon": "i-lucide-key",
+        "to": "/docs/auth/tokens"
+      },
+      {
+        "title": "Passwordless Auth & MFA",
+        "description": "Enhance user security and experience with built-in support for secure magic links and email-based Multi-Factor Authentication.",
+        "icon": "i-lucide-mail",
+        "to": "/docs/auth/mfa"
+      },
+      {
+        "title": "Dynamic Traffic Filtering",
+        "description": "Protect downstream endpoints with granular IP validation, deep GeoIP tracking, proxy detection, and customizable penalty scoring.",
+        "icon": "i-lucide-shield-alert",
+        "to": "/docs/bot-detector/filtering"
+      },
+      {
+        "title": "Seamless OAuth",
+        "description": "Pre-configured third-party authentication flows that synchronize natively and effortlessly with your core user database.",
+        "icon": "i-lucide-plug",
+        "to": "/docs/auth/oauth"
+      },
+      {
+        "title": "Persistent Rate Limiting",
+        "description": "Mitigate brute-force attacks via comprehensive multi-tiered burst and sustained rate limiting, backed securely by MySQL.",
+        "icon": "i-lucide-timer",
+        "to": "/docs/auth/rate-limiting"
+      },
+      {
+        "title": "Native Framework Support",
+        "description": "Drop-in caching, routing, middlewares, and strict utilities designed specifically to integrate with Nuxt, Nitro, and Express.",
+        "icon": "i-lucide-blocks",
+        "to": "/docs/getting-started"
+      },
+      {
+        "title": "HMAC Request Sealing",
+        "description": "Ensure total integrity and authenticity of server-to-server requests originating from the edge gateway using HMAC-SHA256 signatures.",
+        "icon": "i-lucide-file-signature",
+        "to": "/docs/auth/server-to-server"
+      },
+      {
+        "title": "Mutual TLS (mTLS)",
+        "description": "Enforce rigorous enterprise security standards by requiring bi-directional cryptographic identity validation for internal network traffic.",
+        "icon": "i-lucide-lock",
+        "to": "/docs/auth/server-to-server"
+      }
+    ]
+  },
+  "tools": [
+    "vscode-icons:file-type-node",
+    "i-simple-icons-typescript",
+    "i-simple-icons-sqlite",
+    "i-simple-icons-express",
+    "i-simple-icons-redis",
+    "i-simple-icons-vuedotjs",
+    "i-simple-icons-nuxtdotjs",
+    "custom:nitro",
+    "custom:h3"
+  ]
+}
