@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 const route = useRoute();
+
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('blog').path(route.path).first();
 });
@@ -16,13 +17,11 @@ definePageMeta({
 </script>
 
 <template>
-  <UContainer v-if="page">
-    <Meta :page />
-    <UPage>
-      <UPageHeader :title="page.title" :description="page.description" />
-      <UPageBody prose>
-        <ContentRenderer :value="page" />
-      </UPageBody>
-    </UPage>
-  </UContainer>
+  <div v-if="page">
+    <Meta :page="page" />
+    <ContentRenderer
+      v-if="page"
+      :value="page"
+    />
+  </div>
 </template>

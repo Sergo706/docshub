@@ -9,12 +9,11 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-feedme'
   ],
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   compatibilityDate: '2024-04-03',
   css: [
     './app/assets/css/main.css'
   ],
-  
   nitro: {
     prerender: {
       autoSubfolderIndex: false,

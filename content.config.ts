@@ -31,8 +31,8 @@ export default defineContentConfig({
     blog: defineCollection({
       type: 'page',
       source: {
-        include: 'blog/**',
-        exclude: ['docs/**', 'index.md', 'blog/index.md']
+        include: 'blog/posts/**',
+        prefix: '/blog'
       },
       schema: z.object({
         icon: z.string().optional(),

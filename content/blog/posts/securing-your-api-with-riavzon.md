@@ -2,7 +2,7 @@
 title: "Securing Your API Endpoints with Riavzon IAM"
 description: "A deep dive into configuring identity management, token rotation, and rate limiting to protect your backend services from unauthorized access."
 tags:
-  - security
+  - Security
   - iam
   - api
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80"

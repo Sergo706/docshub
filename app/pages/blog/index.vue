@@ -61,7 +61,7 @@ const posts = computed(() => {
         :image="post.image"
         :badge="{ label: post.tags?.[0], color: 'primary' }"
         variant="outline"
-        :authors="[{ name: post.author, description: post.authorGithub, avatar: { src: post.authorImg, loading: 'lazy' }, to: post.authorGithub, target: '_blank' }]"
+        :authors="[{ name: post.author, description: post.authorGithubUserName, avatar: { src: post.authorImg, loading: 'lazy' }, to: post.authorGithub, target: '_blank' }]"
       />
     </UBlogPosts>
   </UPageBody>
