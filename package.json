@@ -21,6 +21,7 @@
     "eslint-config-next": "^16.1.6",
     "eslint-plugin-vue": "^10.8.0",
     "nuxt": "^4.3.1",
+    "nuxt-feedme": "^2.1.0",
     "tailwindcss": "^4.2.1",
     "ufo": "^1.6.3"
   },

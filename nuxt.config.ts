@@ -1,5 +1,14 @@
 export default defineNuxtConfig({
-  modules: ['@nuxt/content', '@nuxt/ui', '@nuxt/image', '@nuxt/fonts', '@nuxt/hints', '@nuxtjs/seo', '@vueuse/nuxt'],
+  modules: [
+    '@nuxt/content',
+    '@nuxt/ui',
+    '@nuxt/image',
+    '@nuxt/fonts',
+    '@nuxt/hints',
+    '@nuxtjs/seo',
+    '@vueuse/nuxt',
+    'nuxt-feedme'
+  ],
   devtools: { enabled: true },
   compatibilityDate: '2024-04-03',
   css: [

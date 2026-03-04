@@ -22,17 +22,27 @@ export default defineContentConfig({
       type: 'page',
       source: 'index.md',
     }),
+
+    blog_landing: defineCollection({
+      type: 'page',
+      source: 'blog/index.md',
+    }),
+
     blog: defineCollection({
       type: 'page',
       source: {
         include: 'blog/**',
-        exclude: ['docs/**', 'index.md']
+        exclude: ['docs/**', 'index.md', 'blog/index.md']
       },
       schema: z.object({
+        icon: z.string().optional(),
         tags: z.array(z.string()),
         image: z.string(),
         author: z.string(),
         authorImg: z.string(),
+        authorGithub: z.string(),
+        authorGithubUserName: z.string(),
+        featured: z.boolean(),
         date: z.date(),
         readingTime: z.string(),
         rawbody: z.string().optional()
