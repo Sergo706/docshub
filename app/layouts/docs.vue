@@ -100,8 +100,13 @@ const links = computed<PageLink[]>(() => [{
       <UPageHeader
         :title="page.title"
         :description="page.description"
-        :headline="pathLink.headLine"
       >
+        <template #headline>
+          <div class="flex-col items-center gap-1">
+            {{ pathLink.headLine }}
+            <LayoutBreadCrumbs />
+          </div>
+        </template>
         <template #links>
           <LayoutActionsDropdown 
             :content="page?.rawbody || page?.description || ''"

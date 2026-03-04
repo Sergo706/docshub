@@ -31,7 +31,7 @@ provide('sidebar_docs_navigation', data);
     <LayoutHeader />
 
       
-    <UMain class="lg:pt-[calc(var(--ui-header-height))">
+    <UMain class="lg:pt-[calc(var(--ui-header-height))]">
       <NuxtLayout>
         <NuxtRouteAnnouncer />
         <NuxtPage />
