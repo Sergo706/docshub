@@ -44,7 +44,7 @@ export default defineNuxtConfig({
   
   app: {
     head: {
-      title: 'Riavzon | Ecosystem',
+      title: 'Riavzon Ecosystem',
       htmlAttrs: {
         lang: 'en',
       },
@@ -58,6 +58,8 @@ export default defineNuxtConfig({
         { rel: 'alternate', type: 'application/atom+xml', title: 'Riavzon Blog Atom', href: '/feed.atom' },
       ],
       meta: [
+        { name: 'theme-color', content: '#FFFDF7', media: '(prefers-color-scheme: light)' },
+        { name: 'theme-color', content: '#0A0908', media: '(prefers-color-scheme: dark)' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
         { name: 'charset', content: 'utf-8' },
         { name: 'color-scheme', content: 'light dark' },
@@ -78,7 +80,12 @@ export default defineNuxtConfig({
     description: 'Centralized documentation for the Riavzon ecosystem',
     defaultLocale: 'en',
   },
-  
+  sitemap: {
+    zeroRuntime: true,
+    defaults: {
+      lastmod: new Date().toISOString(),
+    }
+  },
   ogImage: {
     zeroRuntime: true,
   },
@@ -89,24 +96,36 @@ export default defineNuxtConfig({
     description: 'Centralized documentation for the Riavzon ecosystem',
   },
   feedme: {
+    defaults: {
+      common: false,
+    },
     feeds: {
       common: {
         feed: {
           title: 'Riavzon Blog',
-          description: 'Latest articles from the Riavzon ecosystem',
-          link: 'https://docs.riavzon.com/blog',
+          description: 'Latest articles and updates from the Riavzon ecosystem',
+          id: 'https://docs.riavzon.com/',
+          link: 'https://docs.riavzon.com/',
+          language: 'en',
+          favicon: 'https://docs.riavzon.com/favicon.ico',
           copyright: `© ${new Date().getFullYear()} Riavzon`,
           author: {
             name: 'Riavzon',
             link: 'https://docs.riavzon.com',
           },
         },
+        revisit: '6h',
+        fixDateFields: true,
+        templateMapping: ['', 'meta', 'meta.feedme'],
+        mapping: [['link', 'path']],
+        charset: 'utf-8',
         collections: ['blog'],
-        mapping: [
-          ['link', 'path'],
-        ],
-        replace: [[/^(?=\/)/.toString(), 'https://docs.riavzon.com']],
       },
+      routes: {
+        '/feed.atom': { type: 'atom1' },
+        '/feed.json': { type: 'json1' },
+        '/feed.xml': { type: 'rss2' },
+      }
     },
   },
   content: {

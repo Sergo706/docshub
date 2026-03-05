@@ -58,6 +58,7 @@ const items = computed<DropdownMenuItem[]>(() => [
         color="neutral"
         variant="outline"
         icon="i-lucide-chevron-down"
+        aria-label="More actions"
       />
     </UDropdownMenu>
   </UFieldGroup>

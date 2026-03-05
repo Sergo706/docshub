@@ -92,7 +92,6 @@ const links = computed<PageLink[]>(() => [{
             variant="link"
             highlight
             :navigation="navigation" 
-            :default-open="true"
           />
         </UPageAside>
       </template>

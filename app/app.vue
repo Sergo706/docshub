@@ -14,7 +14,7 @@ const baseNavPath = computed(() => {
   return parts.slice(0, 3).join('/');
 });
 
-const { data } = await useAsyncData<ContentNavigationItem[]>('sidebar_docs_navigation', async () => {
+const { data } = await useAsyncData<ContentNavigationItem[]>(`sidebar_docs_navigation_${baseNavPath.value}`, async () => {
     if (baseNavPath.value.startsWith('/docs')) {
         return await queryCollectionNavigation('docs').where('path', 'LIKE', `%${baseNavPath.value}%`);
     } else if (baseNavPath.value.startsWith('/blog')) {

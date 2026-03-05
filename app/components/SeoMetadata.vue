@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import type { PageCollectionItemBase } from "@nuxt/content";
+import type { BlogCollectionItem, PageCollectionItemBase } from "@nuxt/content";
 import { joinURL } from 'ufo';
 
 interface SeoConfig {
@@ -14,7 +14,7 @@ interface ProfileConfig {
 }
 
 const { page, isWriting, image } = defineProps<{
-  page: PageCollectionItemBase
+  page: PageCollectionItemBase | BlogCollectionItem
   isWriting: boolean
   image?: string,
 }>();
@@ -37,7 +37,6 @@ const getTitleTemplate = (titleChunk: string | undefined): string => {
   return titleChunk ? `${titleChunk} | ${seo.title}` : seo.title;
 };
 useSeoMeta({
-  ogSiteName: seo.title,
   ogTitle: () => pageSEO.value.title,
   ogDescription: () => pageSEO.value.description,
   ogType: isWriting ? 'article' : 'website',
@@ -69,6 +68,13 @@ if (image) {
     twitterImage: () => image,
     twitterImageAlt: () => `${pageSEO.value.description ||  pageSEO.value.title || seo.title} preview`,
   });
+}
+if (isWriting && "date" in page) {
+  useSeoMeta({ 
+    articleModifiedTime: page.date ?? '',
+    articleTag: page.tags,
+    articlePublishedTime: page.date,
+  })
 }
 </script>
 
