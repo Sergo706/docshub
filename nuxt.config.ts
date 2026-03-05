@@ -170,7 +170,9 @@ export default defineNuxtConfig({
             light: 'light-plus',
             dark: 'dracula'
           },
-        }
+          langs: ["mjs", "docker", "bash"]
+        },
+        
       }
     }
   }

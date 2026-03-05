@@ -39,7 +39,7 @@ Because the library utilizes ES modules (`type: "module"`), imports can cleanly 
 
 ```typescript
 // Isomorphic execution context
-import { ensureArray, miniCache } from '@sergo/utils/generic';
+import { ensureArray, miniCache } from '@sergo/utils';
 
 const parsedTags = ensureArray(rawTagsInput);
 ```

@@ -1,50 +1,127 @@
 ---
-title: Utilities
-description: Collection of shared helper functions and composables.
+title: Utilities 
+description: Collection of generic TypeScript utilities, reusable ESLint configurations, and robust Server helpers.
+icon: i-lucide-wrench
 ---
 
 # Shared Utilities
 
-The Utilities module (`@riavzon/utils`) is a tree-shakeable library containing cross-platform helper functions for string manipulation, date formatting, typed event emitters, and more.
+The Utilities package (`@sergo/utils`) is a tree-shakeable library containing cross-platform helper functions for data manipulation, strict typings, ESLint setups, and server operations.
 
 ## Installation
 
-If you are using this outside the monorepo, install via your package manager:
+If you are using this outside the monorepo, install via your preferred package manager:
+
+::code-group
+
+```bash [pnpm]
+pnpm add @sergo/utils
+```
+
+```bash [yarn]
+yarn add @sergo/utils
+```
 
 ```bash [npm]
-npm install @riavzon/utils
+npm install @sergo/utils
 ```
 
-## Available Helpers
+```bash [bun]
+bun add @sergo/utils
+```
+::
 
-### `formatCurrency`
+## Core Features
 
-Formats a numeric value into a localized currency string, defaulting to USD.
+The utilities are split into four main modules:
 
-```typescript [example.ts]
-import { formatCurrency } from '@riavzon/utils'
+::UPageGrid
+::UPageCard
+---
+title: Generic Utilities
+description: Core helper functions for array, object, promise, and string manipulation. Available for both client and server.
+icon: i-lucide-code
+to: /docs/utils/shared/capitalize
+---
+::
 
-const price = 1250.50
-console.log(formatCurrency(price)) // "$1,250.50"
-console.log(formatCurrency(price, 'EUR')) // "€1,250.50"
+::UPageCard
+---
+title: Server Utilities
+description: Helper functions tailored for server environments. Includes configuration definers and backend routines.
+icon: i-lucide-server
+to: /docs/utils/server/run
+---
+::
+
+::UPageCard
+---
+title: ESLint Configs
+description: Pre-configured, ultra-strict ESLint setups for pure TypeScript and Vue projects to maintain a clean codebase.
+icon: i-lucide-check-circle
+to: /docs/utils/eslint/vue
+---
+::
+
+::UPageCard
+---
+title: Utility Types
+description: Advanced TypeScript utility types for better safety, nominal grouping, and IDE tooltip refinement.
+icon: i-lucide-braces
+to: /docs/utils/types
+---
+:: 
+::
+
+## Quick Example
+
+Here is a brief look at how you can interact with the different modules available in the package:
+
+::code-group
+
+```typescript [Generic]
+import { ensureArray, cleanObject } from '@sergo/utils'
+
+// Ensures the provided value is an array
+const items = ensureArray(undefined) // []
+
+// Removes null/undefined values from objects
+const filtered = cleanObject({ name: 'Example', empty: null }) // { name: 'Example' }
 ```
 
-### `sleep`
+```typescript [Server]
+import { defineServerConfig } from '@sergo/utils/server'
 
-A promise-based delay utility for asynchronous sleep operations.
+export default defineServerConfig({
+  port: 3000,
+  host: 'localhost'
+})
+```
 
-```typescript [example.ts]
-import { sleep } from '@riavzon/utils'
+```typescript [ESLint]
+// eslint.config.mjs
+import { defineStrictTSConfig } from '@sergo/utils/eslint/strict'
 
-async function pollStatus() {
-  while (true) {
-    const status = await checkStatus()
-    if (status === 'READY') break
-    await sleep(2000) // wait 2 seconds before retrying
-  }
+export default defineStrictTSConfig({
+  rootDir: import.meta.dirname,
+  extraIgnores: ['coverage/**']
+})
+```
+
+```typescript [Types]
+import type { Brand, Results } from '@sergo/utils/types'
+
+// Use Branding for nominal typing
+type UserID = Brand<string, 'UserID'>
+
+// Define consistent API results
+async function getUser(): Promise<Results<{ name: string }>> {
+  return { ok: true, date: new Date().toISOString(), data: { name: 'Sergo' } }
 }
 ```
 
-::callout{icon="i-lucide-info"}
-All utilities are strictly typed and include comprehensive JSDoc comments for editor intellisense integration.
+::
+
+::callout{icon="i-lucide-info" color="info"}
+All utilities are **strictly typed** and include JSDoc comments for editor intellisense integration.
 ::

@@ -51,11 +51,43 @@ const { data: surroundData } = await useAsyncData<ContentNavigationItem[]>(
   { watch: [() => route.path] }
 );
 
-const navigation = computed(() => {
-  const navArray = sidebarDocsNavigation?.value;
+const navigation = computed<ContentNavigationItem[]>(() => {
+  const navArray: ContentNavigationItem[] | undefined = sidebarDocsNavigation?.value;
   if (!navArray || navArray.length === 0) return [];
 
-  return navArray[0]?.children ?? navArray;
+  const items: ContentNavigationItem[] = navArray[0]?.children ?? navArray;
+  
+  const firstItem: ContentNavigationItem | undefined = items[0];
+  const firstItemChildren: ContentNavigationItem[] | undefined = firstItem?.children;
+  
+  if (firstItem && firstItemChildren && firstItemChildren.length > 0) {
+    const firstChild: ContentNavigationItem | undefined = firstItemChildren[0];
+    
+    if (firstChild) {
+      const overviewChild: ContentNavigationItem = {
+        ...firstChild,
+        title: 'Overview',
+        path: firstChild.path
+      };
+
+      const modifiedFirstItem: ContentNavigationItem = {
+        ...firstItem,
+        title: firstItem.title,
+        path: firstItem.path,
+        children: [
+          overviewChild,
+          ...firstItemChildren.slice(1)
+        ]
+      };
+
+      return [
+        modifiedFirstItem,
+        ...items.slice(1)
+      ];
+    }
+  }
+  
+  return items;
 });
 
 const page = computed(() => pageData.value ?? null);
@@ -68,7 +100,7 @@ const surround = computed(() => {
 const links = computed<PageLink[]>(() => [{
   icon: 'i-lucide-file-pen',
   label: 'Edit this page',
-  to: `https://github.com/Sergo706/docshub/edit/main/content/docs/${page.value?.stem ?? ''}.md`,
+  to: `https://github.com/Sergo706/docshub/edit/main/content/${page.value?.stem ?? ''}.md`,
   target: '_blank'
 }, {
   icon: 'i-lucide-star',
