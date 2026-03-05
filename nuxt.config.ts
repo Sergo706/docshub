@@ -94,6 +94,39 @@ export default defineNuxtConfig({
     domain: 'https://docs.riavzon.com',
     title: 'Riavzon Ecosystem',
     description: 'Centralized documentation for the Riavzon ecosystem',
+    sections: [
+      {
+        title: 'Core Components',
+        description: 'The Riavzon ecosystem is a collection of sophisticated, modular services designed for robust and secure application infrastructure, primarily optimized for Linux environments.',
+        links: [
+          {
+            title: 'Identity and Access Management (IAM) Introduction',
+            description: 'A comprehensive enterprise-grade JWT authentication system for Node.js/Express. Features OAuth, MFA, Magic Links, and advanced rate limiting backed by MySQL. Designed for a Centralized Authentication Service pattern.',
+            href: '/llms/iam.md'
+          },
+          {
+            title: 'Auth H3 Client Introduction',
+            description: 'Seamlessly enforce OAuth 2.0 authentication and session management integrated directly as the client of the IAM module.',
+            href: '/llms/auth-h3client.md'
+          },
+          {
+            title: 'Bot Detection Introduction',
+            description: 'A multi-layered defense system to identify and classify incoming web requests as humans or bots. Utilizes a pipeline of cheap (UA matching, IP validation) and heavy (MaxMind GeoLite2, DNS lookups) checks to assign penalty scores.',
+            href: '/llms/bot-detection.md'
+          },
+          {
+            title: 'Utils Introduction',
+            description: 'A standard library of highly optimized helpers for formatting, validation, and core logic components.',
+            href: '/llms/utils.md'
+          }
+        ]
+      }
+    ],
+    notes: ['For the latest announcements, updates, and deep dives into the ecosystem, please check out our Blog: https://docs.riavzon.com/blog'],
+    full: {
+      title: 'Riavzon Ecosystem Full Documentation',
+      description: 'Comprehensive technical overview of the sophisticated, modular services composing the Riavzon ecosystem.'
+    }
   },
   feedme: {
     defaults: {

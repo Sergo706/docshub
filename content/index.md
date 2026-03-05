@@ -1,6 +1,6 @@
 ---
-title: Home
-description: Docshub Landing Page
+title: Distributed Authentication & Security
+description: A modular infrastructure stack for Node.js and edge frameworks.
 ---
 
 
