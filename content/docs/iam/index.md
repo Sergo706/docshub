@@ -15,7 +15,6 @@ Understanding how permissions are structured is vital for correctly configuring 
 
 A **Role** is a collection of attached **Policies**. A Policy defines explicitly what actions are permitted or denied on specific resources.
 
-::components-grid
     ::card
     ## `admin` Role
     Full access to all dashboard components and user management systems.
@@ -30,7 +29,6 @@ A **Role** is a collection of attached **Policies**. A Policy defines explicitly
     ## `viewer` Role
     Read-only access to specific resources defined by attribute tags.
     ::
-::
 
 > [!CAUTION]
 > Avoid granting `*` (wildcard) permissions unless specifically configuring the root superuser role.

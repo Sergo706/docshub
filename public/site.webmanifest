@@ -1,6 +1,8 @@
 {
   "name": "riavzon",
   "short_name": "riavzon",
+  "start_url": "/",
+  "description": "Centralized documentation for the Riavzon ecosystem",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

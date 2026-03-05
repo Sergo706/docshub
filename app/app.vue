@@ -8,7 +8,6 @@ const route = useRoute();
 const { data: navLinks } = await useAsyncData<NavigationCollection>('navLinks', async () => {
   return await queryCollection('navigationMenu').first() as unknown as NavigationCollection;
 });
-provide('navLinks', navLinks);
 
 const baseNavPath = computed(() => {
   const parts = parsePath(route.path).pathname.split('/');
@@ -24,6 +23,8 @@ const { data } = await useAsyncData<ContentNavigationItem[]>('sidebar_docs_navig
     return [] as ContentNavigationItem[];
 }, { watch: [baseNavPath] });
 
+
+provide('navLinks', navLinks);
 provide('sidebar_docs_navigation', data);
 
 </script>

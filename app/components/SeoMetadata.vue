@@ -13,9 +13,10 @@ interface ProfileConfig {
   name: string;
 }
 
-const { page, isWriting } = defineProps<{
+const { page, isWriting, image } = defineProps<{
   page: PageCollectionItemBase
   isWriting: boolean
+  image?: string,
 }>();
 
 const route = useRoute();
@@ -23,9 +24,7 @@ const appConfig = useAppConfig();
 const seo = appConfig.seo as SeoConfig;
 const profile = appConfig.profile as ProfileConfig;
 
-
 const canonicalUrl = joinURL(seo.url, route.path);
-const ogImageUrl = joinURL(seo.url, '/projects/portfolio.png');
 
 const pageSEO = computed((): { title: string; description: string } => ({
   title: isWriting ? page.title : page.title || seo.title,
@@ -37,26 +36,19 @@ const getTitleTemplate = (titleChunk: string | undefined): string => {
   if (isWriting) return titleChunk ?? '';
   return titleChunk ? `${titleChunk} | ${seo.title}` : seo.title;
 };
-
 useSeoMeta({
   ogSiteName: seo.title,
   ogTitle: () => pageSEO.value.title,
   ogDescription: () => pageSEO.value.description,
   ogType: isWriting ? 'article' : 'website',
-  ogUrl: canonicalUrl,
+  ogUrl: () => canonicalUrl,
   ogLocale: 'en_US',
-  ogImage: ogImageUrl,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
-  ogImageAlt: `${seo.title} preview`,
-  author: profile.name,
+  author: () => profile.name,
   title: () => pageSEO.value.title,
   description: () => pageSEO.value.description,
   twitterTitle: () => pageSEO.value.title,
   twitterDescription: () => pageSEO.value.description,
   twitterCard: 'summary_large_image',
-  twitterImage: ogImageUrl,
-  twitterImageAlt: `${seo.title} preview`,
   ...(isWriting && {
     articleAuthor: [profile.name],
   }),
@@ -65,12 +57,19 @@ useSeoMeta({
 useHead({
   title: () => pageSEO.value.title,
   titleTemplate: getTitleTemplate,
-  link: [
-    { rel: 'canonical', href: canonicalUrl },
-  ],
 });
 
-defineOgImage({ url: ogImageUrl, width: 1200, height: 630, alt: `${seo.title} preview` });
+
+if (image) {
+  useSeoMeta({
+    ogImage: () => image,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageAlt: () => `${pageSEO.value.description ||  pageSEO.value.title || seo.title} preview`,
+    twitterImage: () => image,
+    twitterImageAlt: () => `${pageSEO.value.description ||  pageSEO.value.title || seo.title} preview`,
+  });
+}
 </script>
 
 <template>

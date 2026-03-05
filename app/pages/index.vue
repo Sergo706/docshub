@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import type { ButtonProps } from '@nuxt/ui';
+import { defineOrganization, useSchemaOrg } from '@unhead/schema-org/vue';
 
 definePageMeta({
   layout: 'default',
@@ -47,77 +48,97 @@ const links = ref<ButtonProps[]>([
   }
 ]);
 
+useSchemaOrg([
+  defineOrganization({
+    name: 'Riavzon',
+    logo: '/favicon.svg',
+    url: 'https://docs.riavzon.com',
+  }),
+]);
+
+if (import.meta.server) {
+  defineOgImageComponent('OgImage', {
+    title: 'Riavzon Ecosystem',
+    description: 'Centralized documentation for the Riavzon ecosystem',
+  });
+}
+
 </script>
 
 <template>
-  <Meta :page />
-  <UPageBody v-if="coreModules && page">
-    <GlowingBlob />
-    <ContentRenderer
-      :value="page"
-      :data="{ links }"
+  <template v-if="coreModules && page">
+    <SeoMetadata
+      :page
+      :is-writing="false"
     />
-
-    <UPageSection title="Build with trusted tools">
-      <UPageLogos 
-        v-if="metadata?.tools?.length"
-        marquee
-        :items="metadata.tools"
+    <UPageBody>
+      <GlowingBlob />
+      <ContentRenderer
+        :value="page"
+        :data="{ links }"
       />
-    </UPageSection>
-    <UPageSection
-      :title="metadata?.featuresMetaData.featuresTitle"
-      :description="metadata?.featuresMetaData.featuresDescription"
-    >
-      <UPageGrid>
-        <template #default>
-          <UPageCard
-            v-for="(card, index) in metadata?.featuresMetaData.features"
-            :key="index"
-            spotlight-color="primary"
-            spotlight
-            v-bind="card"
-            target="_blank"
-          />
-        </template>
-      </UPageGrid>
-    </UPageSection>
 
-
-    <UPageSection
-      title="Explore Core Modules"
-      icon="i-lucide-rocket"
-      description="The Riavzon ecosystem provides a comprehensive suite of security and utility modules to help you build robust web applications."
-    >
-      <template #features>
-        <LayoutModuleCards 
-          v-for="(mod, index) in coreModules"
-          :key="index"
-          :badge="mod.badge"
-          :description="mod.description"
-          :label="mod.label"
-          :cta="'Read Docs'"
-          :icon="mod.icon"
-          :to="mod.to"
+      <UPageSection title="Build with trusted tools">
+        <UPageLogos 
+          v-if="metadata?.tools?.length"
+          marquee
+          :items="metadata.tools"
         />
-        <UPageCard
-          title="Deep dive"
-          description="Learn how to configure and integrate our authentication and security suites into your applications."
-          icon="i-lucide-rocket"
-          to="/docs/getting-started"
-          spotlight
-          spotlight-color="primary"
-        >
-          <template #footer>
-            <UButton 
-              class="ml-auto"
-              label="Start reading docs"
-              to="/docs/getting-started"
-              icon="i-lucide-square-play"
+      </UPageSection>
+      <UPageSection
+        :title="metadata?.featuresMetaData.featuresTitle"
+        :description="metadata?.featuresMetaData.featuresDescription"
+      >
+        <UPageGrid>
+          <template #default>
+            <UPageCard
+              v-for="(card, index) in metadata?.featuresMetaData.features"
+              :key="index"
+              spotlight-color="primary"
+              spotlight
+              v-bind="card"
+              target="_blank"
             />
           </template>
-        </UPageCard>
-      </template>
-    </UPageSection>
-  </UPageBody>
+        </UPageGrid>
+      </UPageSection>
+
+
+      <UPageSection
+        title="Explore Core Modules"
+        icon="i-lucide-rocket"
+        description="The Riavzon ecosystem provides a comprehensive suite of security and utility modules to help you build robust web applications."
+      >
+        <template #features>
+          <LayoutModuleCards 
+            v-for="(mod, index) in coreModules"
+            :key="index"
+            :badge="mod.badge"
+            :description="mod.description"
+            :label="mod.label"
+            :cta="'Read Docs'"
+            :icon="mod.icon"
+            :to="mod.to"
+          />
+          <UPageCard
+            title="Deep dive"
+            description="Learn how to configure and integrate our authentication and security suites into your applications."
+            icon="i-lucide-rocket"
+            to="/docs/getting-started"
+            spotlight
+            spotlight-color="primary"
+          >
+            <template #footer>
+              <UButton 
+                class="ml-auto"
+                label="Start reading docs"
+                to="/docs/getting-started"
+                icon="i-lucide-square-play"
+              />
+            </template>
+          </UPageCard>
+        </template>
+      </UPageSection>
+    </UPageBody>
+  </template>
 </template>

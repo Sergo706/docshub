@@ -7,9 +7,10 @@ export default defineNuxtConfig({
     '@nuxt/hints',
     '@nuxtjs/seo',
     '@vueuse/nuxt',
-    'nuxt-feedme'
+    'nuxt-feedme',
+    'nuxt-llms'
   ],
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   compatibilityDate: '2024-04-03',
   css: [
     './app/assets/css/main.css'
@@ -18,7 +19,7 @@ export default defineNuxtConfig({
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: true,
-      routes: ['/']
+      routes: ['/', '/sitemap.xml', '/feed.xml', '/feed.atom', '/feed.json']
     },
     preset: 'github_pages',
   },
@@ -52,17 +53,18 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
         { rel: 'apple-touch-icon', type: 'image/png', sizes: '180x180', href: '/apple-touch-icon.png' },
-        { rel: 'manifest', href: '/site.webmanifest' }
+        { rel: 'manifest', href: '/site.webmanifest' },
+        { rel: 'alternate', type: 'application/rss+xml', title: 'Riavzon Blog RSS', href: '/feed.xml' },
+        { rel: 'alternate', type: 'application/atom+xml', title: 'Riavzon Blog Atom', href: '/feed.atom' },
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
         { name: 'charset', content: 'utf-8' },
-        { name: 'robots', content: 'index, follow' },
         { name: 'color-scheme', content: 'light dark' },
       ]
     }
   },
-    typescript: {
+  typescript: {
     tsConfig: {
       compilerOptions: {
         strictNullChecks: true,
@@ -76,8 +78,36 @@ export default defineNuxtConfig({
     description: 'Centralized documentation for the Riavzon ecosystem',
     defaultLocale: 'en',
   },
+  
   ogImage: {
-    enabled: true,
+    zeroRuntime: true,
+  },
+
+  llms: {
+    domain: 'https://docs.riavzon.com',
+    title: 'Riavzon Ecosystem',
+    description: 'Centralized documentation for the Riavzon ecosystem',
+  },
+  feedme: {
+    feeds: {
+      common: {
+        feed: {
+          title: 'Riavzon Blog',
+          description: 'Latest articles from the Riavzon ecosystem',
+          link: 'https://docs.riavzon.com/blog',
+          copyright: `© ${new Date().getFullYear()} Riavzon`,
+          author: {
+            name: 'Riavzon',
+            link: 'https://docs.riavzon.com',
+          },
+        },
+        collections: ['blog'],
+        mapping: [
+          ['link', 'path'],
+        ],
+        replace: [[/^(?=\/)/.toString(), 'https://docs.riavzon.com']],
+      },
+    },
   },
   content: {
     build: {
