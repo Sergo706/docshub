@@ -13,7 +13,7 @@
     "@nuxt/hints": "^1.0.0-alpha.10",
     "@nuxt/image": "^2.0.0",
     "@nuxt/ui": "^4.5.0",
-    "@nuxtjs/seo": "^3.4.0",
+    "@nuxtjs/seo": "^5.1.0",
     "@sergo/utils": "github:Sergo706/utils",
     "@vueuse/nuxt": "^14.2.1",
     "better-sqlite3": "^12.6.2",
