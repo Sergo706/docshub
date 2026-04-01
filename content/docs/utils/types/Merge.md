@@ -22,7 +22,7 @@ export type Merge<FirstType, SecondType> = Omit<FirstType, keyof SecondType> & S
 This utility is extremely helpful when you are extending a base configuration or payload with specialized properties that might redefine existing properties.
 
 ```typescript [example.ts]
-import type { Merge } from '@sergo/utils/types'
+import type { Merge } from '@riavzon/utils'
 
 interface DefaultConfig {
   url: string;

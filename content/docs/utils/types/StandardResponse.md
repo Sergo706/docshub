@@ -72,7 +72,7 @@ type Results<T = unknown> = Success<T> | ApiError;
 With the `Results` union, TypeScript will properly narrow the payload and distinctly enforce the correct properties via the `ok` discriminator.
 
 ```typescript [example.ts]
-import type { Results } from '@sergo/utils/types'
+import type { Results } from '@riavzon/utils'
 
 async function fetchUser(): Promise<Results<{ id: string, name: string }>> {
   try {

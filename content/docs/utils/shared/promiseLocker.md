@@ -41,7 +41,7 @@ export async function safeAction<T>(
 This is perfect for preventing redundant heavy requests to external APIs or databases.
 
 ```typescript [example.ts]
-import { safeAction } from '@sergo/utils'
+import { safeAction } from '@riavzon/utils'
 import pino from 'pino'
 
 const logger = pino();

@@ -22,7 +22,7 @@ export type NonNullable<T> = T extends null | undefined ? never : T;
 This utility allows you to strictly enforce that a value has been initialized and is securely accessible, effectively stripping away the possibility of it being absent.
 
 ```typescript [example.ts]
-import type { NonNullable } from '@sergo/utils/types'
+import type { NonNullable } from '@riavzon/utils'
 
 type MaybeString = string | null | undefined;
 type MaybeUser = { id: string } | undefined;

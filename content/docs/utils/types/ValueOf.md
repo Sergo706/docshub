@@ -22,7 +22,7 @@ export type ValueOf<T> = T[keyof T];
 This is particularly useful when working with configuration constants or enums represented as constant objects (`as const`), where you need to restrict a variable to only the values defined in the object.
 
 ```typescript [example.ts]
-import type { ValueOf } from '@sergo/utils/types'
+import type { ValueOf } from '@riavzon/utils'
 
 const STATUS_CODES = {
   OK: 200,

@@ -40,7 +40,7 @@ Malicious users can paste huge payloads that would crash your server.
 By default, the utility only removes `null` and `undefined` from the top-level array.
 
 ```typescript [example-shallow.ts]
-import { filterEmptyValues } from '@sergo/utils'
+import { filterEmptyValues } from '@riavzon/utils'
 
 const input = [1, null, undefined, 0, false, ""];
 const result = filterEmptyValues(input);
@@ -52,7 +52,7 @@ const result = filterEmptyValues(input);
 When `deep` is set to `true`, the utility recursively cleans nested structures.
 
 ```typescript [example-deep.ts]
-import { filterEmptyValues } from '@sergo/utils'
+import { filterEmptyValues } from '@riavzon/utils'
 
 const input = [
   1,

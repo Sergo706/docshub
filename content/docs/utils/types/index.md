@@ -6,7 +6,7 @@ icon: i-lucide-code-2
 
 # Utility Types
 
-The `@sergo/utils/types` module includes a collection of advanced TypeScript types that solve common documentation and type-safety challenges.
+The `@riavzon/utils/types` module includes a collection of advanced TypeScript types that solve common documentation and type-safety challenges.
 
 ## Available Types
 

@@ -40,7 +40,7 @@ export function capitalizeSentence(str: string): string
 ## Example Usage
 
 ```typescript [example.ts]
-import { capitalize, capitalizeSentence } from '@sergo/utils'
+import { capitalize, capitalizeSentence } from '@riavzon/utils'
 
 // 1. Single word normalization
 console.log(capitalize('sErGiO')); // "Sergio"

@@ -58,7 +58,7 @@ getRandomElement<T>(array: T[]): T | undefined
 ## Example Usage
 
 ```typescript [example.ts]
-import { Random } from '@sergo/utils'
+import { Random } from '@riavzon/utils'
 
 const random = new Random();
 

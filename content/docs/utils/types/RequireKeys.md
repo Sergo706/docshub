@@ -22,7 +22,7 @@ export type RequireKeys<T, K extends keyof T> = T & { [P in K]-?: T[P] };
 This is incredibly useful when transforming an object through various stages of computation, where initially some properties are optional, but after validation or hydration, they are guaranteed to exist.
 
 ```typescript [example.ts]
-import type { RequireKeys } from '@sergo/utils/types'
+import type { RequireKeys } from '@riavzon/utils'
 
 interface UserProfile {
   id: string;

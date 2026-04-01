@@ -48,7 +48,7 @@ A synchronous helper function that extracts the `download_url` from the array of
 ## Example Usage
 
 ```typescript [example.ts]
-import { getRandomImage } from '@sergo/utils'
+import { getRandomImage } from '@riavzon/utils'
 
 // 1. Initialize the fetcher for 5 images
 const { getter, toUrls } = getRandomImage(5);

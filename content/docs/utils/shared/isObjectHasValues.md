@@ -30,7 +30,7 @@ A value is considered **meaningful** if it meets any of the following conditions
 ## Example Usage
 
 ```typescript [example.ts]
-import { isObjectHasValues } from '@sergo/utils'
+import { isObjectHasValues } from '@riavzon/utils'
 
 const empty = {
   name: '',

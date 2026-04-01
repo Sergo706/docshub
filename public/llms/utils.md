@@ -14,7 +14,7 @@ By centralizing common logic, this library ensures consistency across authentica
 
 The library is organized into discrete functional domain folders:
 
-### `generic/` (Core Tools)
+### `shared/` (Core Tools)
 Contains heavily optimized pure functions avoiding side-effects.
 - **Data Manipulation:** Fast list and object traversal tools like `ensureArray` to normalize varied inputs reliably.
 - **Sanitization & Formatting:** Standardized string parsing for reliable database insertion or UI rendering.

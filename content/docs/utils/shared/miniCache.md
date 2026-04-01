@@ -37,7 +37,7 @@ export class MiniCache<T = any> {
 ## Example Usage
 
 ```typescript [example.ts]
-import { MiniCache } from '@sergo/utils'
+import { MiniCache } from '@riavzon/utils'
 
 // Cache up to 100 entries, sweep expired items every 30 seconds
 const cache = new MiniCache<string>(100, 30_000);

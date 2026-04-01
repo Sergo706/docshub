@@ -47,7 +47,7 @@ The utility returns one of two structures depending on the result:
 ```typescript [example.ts]
 import { z } from 'zod'
 import pino from 'pino'
-import { validateZodSchema } from '@sergo/utils'
+import { validateZodSchema } from '@riavzon/utils'
 
 const logger = pino();
 

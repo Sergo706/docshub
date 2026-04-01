@@ -118,6 +118,26 @@ export default defineNuxtConfig({
             title: 'Utils Introduction',
             description: 'A standard library of highly optimized helpers for formatting, validation, and core logic components.',
             href: '/llms/utils.md'
+          },
+          {
+            title: 'Identity and Access Management (IAM) Repo',
+            description: 'The repository containing the source code of the IAM component',
+            href: 'https://github.com/Sergo706/auth'
+          },
+          {
+            title: 'Auth H3 Client Repo',
+            description: 'The repository containing the source code of the Auth H3 Client component',
+            href: 'https://github.com/Sergo706/auth-h3client'
+          },
+          {
+            title: 'Bot Detection Repo',
+            description: 'The repository containing the source code of the Bot Detection component',
+            href: 'https://github.com/Sergo706/bot-detector'
+          },
+          {
+            title: 'Utils Repo',
+            description: 'The repository containing the source code of the Utils component',
+            href: 'https://github.com/Sergo706/utils'
           }
         ]
       }

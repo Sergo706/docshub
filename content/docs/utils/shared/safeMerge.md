@@ -44,7 +44,7 @@ export function safeObjectMerge(
 ## Example Usage
 
 ```typescript [example.ts]
-import { safeObjectMerge } from '@sergo/utils'
+import { safeObjectMerge } from '@riavzon/utils'
 
 const user = { id: 1, name: "Alice", role: "guest" };
 const update = { id: 999, role: "admin", bio: "Developer" };

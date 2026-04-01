@@ -43,7 +43,7 @@ export function cleanObject<T extends object>(
 ## Example Usage
 
 ```typescript [example.ts]
-import { cleanObject } from '@sergo/utils'
+import { cleanObject } from '@riavzon/utils'
 
 const rawData = {
   id: 1,

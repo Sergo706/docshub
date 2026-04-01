@@ -48,7 +48,7 @@ export function defineStrictTSConfig(options: {
 Create an `eslint.config.mjs` file in your project root:
 
 ```javascript [eslint.config.ts]
-import { defineStrictTSConfig } from '@sergo/utils/eslint'
+import { defineStrictTSConfig } from '@riavzon/utils/eslint'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 

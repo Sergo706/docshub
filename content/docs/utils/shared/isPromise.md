@@ -25,7 +25,7 @@ export function isAsyncOrPromise(
 ## Example Usage
 
 ```typescript [example.ts]
-import { isAsyncOrPromise } from '@sergo/utils'
+import { isAsyncOrPromise } from '@riavzon/utils'
 
 const asyncFn = async () => 1;
 const promise = Promise.resolve(1);

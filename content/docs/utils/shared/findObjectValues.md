@@ -49,7 +49,7 @@ A matching string is returned (and trimmed) if:
 This utility is particularly effective for extracting specific data points like emails or IDs from deeply nested configuration or payload objects.
 
 ```typescript [example.ts]
-import { findStringsInObject } from '@sergo/utils'
+import { findStringsInObject } from '@riavzon/utils'
 
 const payload = {
   user: {

@@ -24,7 +24,7 @@ export type DeepPartial<T> = {
 This utility is extremely useful for forms, state mutations, or patch payloads where only a subset of deeply nested properties are being updated.
 
 ```typescript [example.ts]
-import type { DeepPartial } from '@sergo/utils/types'
+import type { DeepPartial } from '@riavzon/utils'
 
 interface Config {
   server: {

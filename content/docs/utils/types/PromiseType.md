@@ -22,7 +22,7 @@ export type PromiseType<T> = T extends Promise<infer U> ? U : T;
 This utility is particularly helpful when you need to specifically type the return value of an asynchronous function without manually unwrapping the `Promise` using Awaited, or when dealing with higher-order functions that wrap existing asynchronous operations.
 
 ```typescript [example.ts]
-import type { PromiseType } from '@sergo/utils/types'
+import type { PromiseType } from '@riavzon/utils'
 
 // A typical async function returning a string
 async function fetchGreeting(): Promise<string> {

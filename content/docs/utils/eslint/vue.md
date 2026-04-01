@@ -47,7 +47,7 @@ export function defineStrictVueConfig(options: {
 ## Usage
 
 ```javascript [eslint.config.ts]
-import { defineStrictVueConfig } from '@sergo/utils/eslint'
+import { defineStrictVueConfig } from '@riavzon/utils/eslint'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 

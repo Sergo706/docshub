@@ -35,7 +35,7 @@ export function debounce<T extends (...args: any[]) => any>(
 A common use case is debouncing a search input to avoid making an API call on every single keystroke.
 
 ```typescript [example.ts]
-import { debounce } from '@sergo/utils'
+import { debounce } from '@riavzon/utils'
 
 const handleSearch = (query: string) => {
   console.log(`Searching for: ${query}`);

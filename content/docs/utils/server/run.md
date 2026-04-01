@@ -45,7 +45,7 @@ export const run = async (command: string, options: ExecOptions = {}): Promise<R
 This utility automatically trims whitespace from string outputs and includes robust error logging when a command fails or throws an exception.
 
 ```ts [example.ts]
-import { run } from '@sergo/utils/server'
+import { run } from '@riavzon/utils/server'
 
 async function checkSystemMemory() {
   try {

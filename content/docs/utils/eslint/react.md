@@ -50,7 +50,7 @@ To prevent accidentally exposing private helper functions to the client, this co
 ## Usage
 
 ```javascript [eslint.config.ts]
-import { defineStrictReactConfig } from '@sergo/utils/eslint'
+import { defineStrictReactConfig } from '@riavzon/utils/eslint'
 
 export default defineStrictReactConfig({
   rootDir: import.meta.dirname,

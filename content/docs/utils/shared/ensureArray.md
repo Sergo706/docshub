@@ -30,7 +30,7 @@ export default function ensureArray(
 This utility is extremely useful when dealing with API responses or form data where a field might be a single string or multiple strings, and you want to use `.map()` or other array methods safely. 
 
 ```typescript [example.ts]
-import { ensureArray } from '@sergo/utils'
+import { ensureArray } from '@riavzon/utils'
 
 ensureArray(null)               // []
 ensureArray(undefined)          // []

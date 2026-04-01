@@ -6,7 +6,7 @@ icon: i-lucide-wrench
 
 # Shared Utilities
 
-The Utilities package (`@sergo/utils`) is a tree-shakeable library containing cross-platform helper functions for data manipulation, strict typings, ESLint setups, and server operations.
+The Utilities package (`@riavzon/utils`) is a tree-shakeable library containing cross-platform helper functions for data manipulation, strict typings, ESLint setups, and server operations.
 
 ## Installation
 
@@ -15,19 +15,19 @@ If you are using this outside the monorepo, install via your preferred package m
 ::code-group
 
 ```bash [pnpm]
-pnpm add @sergo/utils
+pnpm add @riavzon/utils
 ```
 
 ```bash [yarn]
-yarn add @sergo/utils
+yarn add @riavzon/utils
 ```
 
 ```bash [npm]
-npm install @sergo/utils
+npm install @riavzon/utils
 ```
 
 ```bash [bun]
-bun add @sergo/utils
+bun add @riavzon/utils
 ```
 ::
 
@@ -48,7 +48,7 @@ to: /docs/utils/shared/capitalize
 ::UPageCard
 ---
 title: Server Utilities
-description: Helper functions tailored for server environments. Includes configuration definers and backend routines.
+description: Node.js-only helpers for path resolution, shell command execution, and CSV bulk uploads to MySQL and PostgreSQL.
 icon: i-lucide-server
 to: /docs/utils/server/run
 ---
@@ -80,7 +80,7 @@ Here is a brief look at how you can interact with the different modules availabl
 ::code-group
 
 ```typescript [Generic]
-import { ensureArray, cleanObject } from '@sergo/utils'
+import { ensureArray, cleanObject } from '@riavzon/utils'
 
 // Ensures the provided value is an array
 const items = ensureArray(undefined) // []
@@ -90,17 +90,19 @@ const filtered = cleanObject({ name: 'Example', empty: null }) // { name: 'Examp
 ```
 
 ```typescript [Server]
-import { defineServerConfig } from '@sergo/utils/server'
+import { run, resolvePath } from '@riavzon/utils/server'
 
-export default defineServerConfig({
-  port: 3000,
-  host: 'localhost'
-})
+// Resolve a data file path relative to the project root
+const dbPath = resolvePath('geo.mmdb', ['_data-sources', 'dist/_data-sources'])
+
+// Execute a shell command and capture its output
+const { stdout } = await run('node --version')
+console.log(stdout) // "v22.0.0"
 ```
 
 ```typescript [ESLint]
 // eslint.config.mjs
-import { defineStrictTSConfig } from '@sergo/utils/eslint/strict'
+import { defineStrictTSConfig } from '@riavzon/utils/eslint/strict'
 
 export default defineStrictTSConfig({
   rootDir: import.meta.dirname,
@@ -109,7 +111,7 @@ export default defineStrictTSConfig({
 ```
 
 ```typescript [Types]
-import type { Brand, Results } from '@sergo/utils/types'
+import type { Brand, Results } from '@riavzon/utils'
 
 // Use Branding for nominal typing
 type UserID = Brand<string, 'UserID'>

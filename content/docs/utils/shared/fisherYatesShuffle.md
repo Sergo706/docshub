@@ -31,7 +31,7 @@ export function fisherYatesShuffle<T>(array: T[]): T[]
 This utility is perfect for scenarios where you need to randomize the order of a list, such as shuffling a deck of cards or randomizing a list of search results.
 
 ```typescript [example.ts]
-import { fisherYatesShuffle } from '@sergo/utils'
+import { fisherYatesShuffle } from '@riavzon/utils'
 
 const input = [1, 2, 3, 4, 5];
 const shuffled = fisherYatesShuffle(input);

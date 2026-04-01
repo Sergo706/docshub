@@ -28,7 +28,7 @@ export default function textTruncation(text: string, maxLength: number): string
 ## Example Usage
 
 ```typescript [example.ts]
-import { textTruncation } from '@sergo/utils'
+import { textTruncation } from '@riavzon/utils'
 
 const title = "Welcome to the Website";
 

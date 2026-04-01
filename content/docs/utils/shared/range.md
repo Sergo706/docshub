@@ -44,7 +44,7 @@ export function range(
 ## Example Usage
 
 ```typescript [example.ts]
-import { range } from '@sergo/utils'
+import { range } from '@riavzon/utils'
 
 // 1. Basic usage (1 to 5)
 const basic = [...range(0, 5)];

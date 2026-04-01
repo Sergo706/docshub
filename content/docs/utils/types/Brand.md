@@ -22,7 +22,7 @@ export type Brand<K, T> = K & { __brand: T };
 Branded types are perfect for enforcing domain-specific constraints. For instance, distinguishing between different currencies or ensuring an ID string isn't used where a purely random string is expected.
 
 ```typescript [example.ts]
-import type { Brand } from '@sergo/utils/types'
+import type { Brand } from '@riavzon/utils'
 
 type USD = Brand<number, 'USD'>;
 type EUR = Brand<number, 'EUR'>;

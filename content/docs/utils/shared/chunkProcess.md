@@ -37,7 +37,7 @@ export async function chunkProcess<T>(
 In this example, imagine we have 5000 post IDs that we need to update in a database, but our database driver only allows updates of 1000 IDs at a time. `chunkProcess` handles the loop logic for us.
 
 ```typescript [example.ts]
-import { chunkProcess } from '@sergo/utils'
+import { chunkProcess } from '@riavzon/utils'
 
 const allPostIds = [1, 2, 3, 4, 5, /* ... thousands more ... */];
 

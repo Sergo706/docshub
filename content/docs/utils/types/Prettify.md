@@ -25,7 +25,7 @@ export type Prettify<T> = {
 When combining multiple types, IDEs often display the raw intersection (`A & B`). Using `Prettify` fully resolves its properties:
 
 ```typescript [example.ts]
-import type { Prettify } from '@sergo/utils/types'
+import type { Prettify } from '@riavzon/utils'
 
 type UserBase = { id: string; name: string }
 type UserMeta = { createdAt: string; isActive: boolean }

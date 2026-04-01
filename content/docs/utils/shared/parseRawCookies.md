@@ -29,7 +29,7 @@ export function parseCookies(
 ## Example Usage
 
 ```typescript [example.ts]
-import { parseCookies } from '@sergo/utils'
+import { parseCookies } from '@riavzon/utils'
 
 // 1. Parsing a standard cookie string
 const fromString = parseCookies("theme=dark; user=sergo; path=/");
