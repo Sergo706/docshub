@@ -35,7 +35,7 @@ bun add @riavzon/utils
 
 The utilities are split into four main modules:
 
-::UPageGrid
+::UPageGrid{class="lg:grid-cols-2"}
 ::UPageCard
 ---
 title: Generic Utilities
@@ -52,7 +52,7 @@ description: Node.js-only helpers for path resolution, shell command execution, 
 icon: i-lucide-server
 to: /docs/utils/server/run
 ---
-::
+:: 
 
 ::UPageCard
 ---
@@ -122,8 +122,4 @@ async function getUser(): Promise<Results<{ name: string }>> {
 }
 ```
 
-::
-
-::callout{icon="i-lucide-info" color="info"}
-All utilities are **strictly typed** and include JSDoc comments for editor intellisense integration.
-::
+:: 
