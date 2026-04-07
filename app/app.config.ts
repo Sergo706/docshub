@@ -8,6 +8,9 @@ export default defineAppConfig({
       pre: {
         base: 'bg-transparent border-transparent' 
       },
+      codeIcon: {
+        sh: 'i-lucide-square-terminal'
+      },
       codeGroup: {
         slots: {
           indicator: 'bg-cream-200/70 dark:bg-riavzon-800',

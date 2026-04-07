@@ -1,3 +1,5 @@
+const isDev = process.env.NODE_ENV === 'development'
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
@@ -36,12 +38,13 @@ export default defineNuxtConfig({
     },
     provider: 'iconify',
   },
-  routeRules: {
-    '/docs/**': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 }  },
-    '/blog/**': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 }  },
-    '/': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 } },
-  },
-  
+  routeRules: isDev
+    ? {}
+    : {
+        '/docs/**': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 } },
+        '/blog/**': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 } },
+        '/': { prerender: true, cache: { maxAge: 60 * 60 * 24 * 30 } }
+      },
   app: {
     head: {
       title: 'Riavzon Ecosystem',
@@ -190,7 +193,7 @@ export default defineNuxtConfig({
             light: 'light-plus',
             dark: 'dracula'
           },
-          langs: ["mjs", "docker", "bash"]
+          langs: ["mjs", "docker", "bash", "dockerfile", "yaml", "yml", "json"]
         },
         
       }
