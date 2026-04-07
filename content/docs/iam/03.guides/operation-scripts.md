@@ -42,16 +42,16 @@ Next it resolves the configuration file. You can pass a file path as an argument
 
 The script generates a fresh [age](https://github.com/FiloSottile/age) keypair on every run. It removes any existing `age_key` and `public_key` files, generates new ones with `age-keygen`, and uses the public key to encrypt the resolved configuration into `config.json.age`. This encrypted file is the only form of configuration that enters the container.
 
-After encryption, it temporarily widens the `age_key` permissions to `750` so Docker can read it during container startup, creates the log directories (`app-logs/` and `detector-logs/`), and launches the container with `docker compose up --build -d --force-recreate auth`.
+After encryption, it temporarily widens the `age_key` permissions to `750` so Docker can read it during container startup, creates the log directories, and launches the container with `docker compose up --build -d --force-recreate auth`.
 
 ::tip
 Remove `auth` from `docker compose up --build -d --force-recreate auth` to start the whole compose file
 ::
 
-Once the container is running, the script tightens `age_key` back to `600`, deletes the `public_key`, and if the original config file was `config.json` (production), deletes it from the host. Development config files are kept for convenience.
+Once the container is running, the script tightens `age_key` back to `600`, deletes the `public_key`, and if the original config file was `config.json`, deletes it from the host. Development config files are kept for convenience.
 
 ::caution
-The script deletes `config.json` after a successful launch. If you deploy with a production config, make sure you have a backup or a secrets manager that can regenerate it, or use `config.dev.json` instead.
+The script deletes `config.json` after a successful launch. the only way to restore it, is by decrypting `config.json.age` with your new `age_key`.
 ::
 
 ### Script

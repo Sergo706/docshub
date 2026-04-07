@@ -120,65 +120,55 @@ IAM is designed to run as a standalone Express service. The [Auth H3 Client](/do
 ::UPageGrid
   ::UPageCard
   ---
-    title: Getting Started
-    description: Prerequisites, installation, and first run.
-    icon: i-lucide-rocket
-    to: /docs/iam/getting-started
+  title: Getting Started
+  description: Prerequisites, installation, and first run.
+  icon: i-lucide-rocket
+  to: /docs/iam/getting-started
   ---
   ::
 
   ::UPageCard
   ---
   title: Essentials
-  description: Core features, design, and apis
-  icon: i-lucide-settings
+  description: Token lifecycle, authentication flows, anomaly detection, MFA, rate limiting, database schema, and every core subsystem.
+  icon: i-lucide-book-open
   to: /docs/iam/essentials
   ---
   ::
 
   ::UPageCard
   ---
-  title: Routes
-  description: All four route sets shipped by the module with their exact HTTP methods, paths, and middleware chains.
-  icon: i-lucide-route
-  to: /docs/iam/routes
-  ---
-  ::
- 
-   
-  ::UPageCard
-  ---
-  title: Rate Limiting
-  description: Building union limiters, configuring burst and slow-attack thresholds, and wiring them to your routes.
-  icon: i-lucide-gauge
-  to: /docs/iam/rate-limiting
+  title: Security
+  description: Password hashing with Argon2id, cookie security, XSS defenses, and an overview of the defense strategy.
+  icon: i-lucide-lock-keyhole
+  to: /docs/iam/security
   ---
   ::
 
   ::UPageCard
   ---
-    title: Configuration
-    description: Complete reference for the configuration object passed to the IAM service, including database, JWT, email, and rate-limiter options.
-    icon: i-lucide-settings
-    to: /docs/iam/configuration
-  ---
-  :: 
-  
-  ::UPageCard
-  ---
-    title: API Reference
-    description: Complete reference for all exported functions, middlewares, and routes.
-    icon: i-lucide-code
-    to: /docs/iam/api
+  title: Guides
+  description: Deployment, age encryption, mTLS configuration, and operational shell scripts for production environments.
+  icon: i-lucide-book-marked
+  to: /docs/iam/guides/operation-scripts
   ---
   ::
+
   ::UPageCard
   ---
-    title: Security
-    description: Password hashing with Argon2id, cookie security, and an overview of the defense strategy.
-    icon: i-lucide-lock-keyhole
-    to: /docs/iam/security
-    class: col-span-full
+  title: Configuration
+  description: Complete reference for the configuration object passed to the IAM service, including database, JWT, email, and rate-limiter options.
+  icon: i-lucide-settings
+  to: /docs/iam/configuration
+  ---
+  ::
+
+  ::UPageCard
+  ---
+  title: API Reference
+  description: Complete reference for all exported functions, middlewares, and routes.
+  icon: i-lucide-code
+  to: /docs/iam/api/api
   ---
   ::
 ::
