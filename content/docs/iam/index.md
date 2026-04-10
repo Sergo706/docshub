@@ -148,9 +148,9 @@ IAM is designed to run as a standalone Express service. The [Auth H3 Client](/do
   ::UPageCard
   ---
   title: Guides
-  description: Deployment, age encryption, mTLS configuration, and operational shell scripts for production environments.
+  description: Role-based access control, deployment, age encryption, mTLS configuration, and operational shell scripts for production environments.
   icon: i-lucide-book-marked
-  to: /docs/iam/guides/operation-scripts
+  to: /docs/iam/guides/rbac
   ---
   ::
 

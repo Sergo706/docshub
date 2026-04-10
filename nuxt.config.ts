@@ -2,8 +2,8 @@ const isDev = process.env.NODE_ENV === 'development'
 
 export default defineNuxtConfig({
   modules: [
-    '@nuxt/content',
     '@nuxt/ui',
+    '@nuxt/content',
     '@nuxt/image',
     '@nuxt/fonts',
     '@nuxt/hints',
@@ -193,7 +193,7 @@ export default defineNuxtConfig({
             light: 'light-plus',
             dark: 'dracula'
           },
-          langs: ["mjs", "docker", "bash", "dockerfile", "yaml", "yml", "json"]
+          langs: ["mjs", "docker", "bash", "dockerfile", "yaml", "yml", "json", "http"]
         },
         
       }

@@ -133,3 +133,15 @@ code:not(pre code) {
   top: 50%;
   left: 50%;
 }
+[class*="[counter-reset:step]"] h2::before,
+[class*="[counter-reset:step]"] h3::before,
+[class*="[counter-reset:step]"] h4::before {
+  -webkit-text-fill-color: currentColor !important;
+  color: var(--ui-text-highlighted, inherit);
+}
+
+.dark [class*="[counter-reset:step]"] h2::before,
+.dark [class*="[counter-reset:step]"] h3::before,
+.dark [class*="[counter-reset:step]"] h4::before {
+  color: white !important;
+}
