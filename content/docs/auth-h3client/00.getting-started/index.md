@@ -17,19 +17,19 @@ icon: i-lucide-rocket
 ::code-group
 
 ```bash [pnpm]
-pnpm add auth-h3client
+pnpm add @riavzon/auth-h3client
 ```
 
 ```bash [yarn]
-yarn add auth-h3client
+yarn add @riavzon/auth-h3client
 ```
 
 ```bash [npm]
-npm install auth-h3client
+npm install @riavzon/auth-h3client
 ```
 
 ```bash [bun]
-bun add auth-h3client
+bun add @riavzon/auth-h3client
 ```
 
 ::
