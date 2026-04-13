@@ -80,7 +80,7 @@ For Nuxt/Vue Composables see the [Client-Side](/docs/auth-h3client/client) secti
   ::UPageCard
   ---
   title: Logging
-  description: The HTTP request logger, the pino logger instance, log levels, and Telegram alerting for critical events.
+  description: The HTTP request logger, the pino logger instance, log levels.
   icon: i-lucide-terminal
   to: /docs/auth-h3client/essentials/logging
   ---

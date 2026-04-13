@@ -141,7 +141,7 @@ services:
       start_period: 7m
 
   auth:
-    image: riavzon/auth:latest
+    image: sergio68/auth
     read_only: true  
     restart: unless-stopped
     cap_drop: ["ALL"]
@@ -322,7 +322,7 @@ services:
       start_period: 7m
 
   auth:
-    image: riavzon/auth:latest
+    image: sergio68/auth
     read_only: true  
     restart: unless-stopped
     cap_drop: ["ALL"]

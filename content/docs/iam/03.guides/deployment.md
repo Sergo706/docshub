@@ -192,7 +192,7 @@ services:
         ipv4_address: 172.20.5.3   
 
   auth:
-    image: riavzon/auth:latest
+    image: sergio68/auth
     read_only: true  
     restart: unless-stopped
     cap_drop: ["ALL"]

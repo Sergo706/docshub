@@ -206,7 +206,6 @@ configuration({
       redirectUrlOnError: 'https://app.example.com/login',
     },
   ],
-  telegram: { enableTelegramLogger: false },
   logLevel: 'info',
 });
 
