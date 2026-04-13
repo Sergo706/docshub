@@ -236,10 +236,9 @@ Refresh tokens satisfy the security requirement. They are stored as hashes, cons
 
 The deduplication layer sits between the two, preventing the concurrent-rotation problem that makes dual-token systems brittle in practice.
 
-::read-more{to="/docs/iam/essentials/tokens"}
-Read the full token reference for the IAM service
-::
 
-::read-more{to="/docs/auth-h3client/essentials/session"}
-Read how Auth H3 Client manages session state and drives token rotation
-::
+Read the full [token reference](/docs/iam/essentials/tokens) for the IAM service
+
+
+Read how [Auth H3 Client](/docs/auth-h3client/essentials/session) manages session state and drives token rotation
+

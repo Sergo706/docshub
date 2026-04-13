@@ -757,10 +757,10 @@ A bot that evades Shield Base's IP reputation checks still faces 17 behavioral c
 
 The layered approach trades complexity for resilience. Each layer is effective in isolation. Together, they make the cost of a successful bot attack high enough that most attackers move on to easier targets.
 
-::read-more{to="/docs/bot-detection"}
-Read the full Bot Detector reference
-::
 
-::read-more{to="/docs/shield-base"}
-Read the full Shield Base reference for database compilation options
-::
+Read the full [Bot Detector](/docs/bot-detection) reference
+
+
+
+Read the full [Shield Base](/docs/shield-base) reference for database compilation options
+
