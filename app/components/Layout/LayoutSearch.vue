@@ -17,11 +17,12 @@ const groups = [{
   label: 'Explore',
   slot: 'links' as const,
   items: [
-  { label: 'Docs', icon: 'i-lucide-book', to: '/docs/getting-started' }, 
-  { label: 'Auth (H3 Client)', icon: 'i-lucide-lock', to: '/docs/auth-h3client/1.overview.md' }, 
-  { label: 'IAM Service', icon: 'i-lucide-shield-check', to: '/docs/iam/1.overview.md' }, 
-  { label: 'Bot Detection', icon: 'i-lucide-bot', to: '/docs/bot-detection/1.overview.md' }, 
-  { label: 'Utilities', icon: 'i-lucide-wrench', to: '/docs/utils/1.overview.md' }, 
+    { label: 'Getting Started', icon: 'i-lucide-rocket', to: '/docs/getting-started' },
+    { label: 'Auth H3 Client', icon: 'i-lucide-layers', to: '/docs/auth-h3client' },
+    { label: 'IAM Service', icon: 'i-lucide-shield-check', to: '/docs/iam' },
+    { label: 'Bot Detector', icon: 'i-lucide-shield-half', to: '/docs/bot-detection' },
+    { label: 'Shield Base', icon: 'i-lucide-database-zap', to: '/docs/shield-base' },
+    { label: 'Utilities', icon: 'i-lucide-wrench', to: '/docs/utils' },
   ]
 }];
 </script>
