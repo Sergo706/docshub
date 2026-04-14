@@ -39,7 +39,7 @@ jobs:
       - run: npm run build
         env:
           NITRO_PRESET: github_pages
-
+          NUXT_APP_BASE_URL: /docshub/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
