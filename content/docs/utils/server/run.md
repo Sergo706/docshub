@@ -8,8 +8,8 @@ The `run` utility is a modernized, Promise-based wrapper around Node.js's native
 
 It enables seamless execution of shell commands within an `async/await` flow, automatically parsing and returning both `stdout` and `stderr`. It also overrides the restrictive default buffer size, allowing for processes with massive outputs without crashing.
 
-::callout{icon="i-lucide-alert-triangle" color="error"}
-**Warning**: This utility designed to be used server side and its provided input is not sanitized. Do not pass untrusted values to it.
+::caution
+This utility designed to be used server side and its provided input is not sanitized. Do not pass untrusted values to it.
 ::
 
 ## Definition

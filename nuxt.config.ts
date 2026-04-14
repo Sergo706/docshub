@@ -123,6 +123,16 @@ export default defineNuxtConfig({
             href: '/llms/utils.md'
           },
           {
+            title: 'Shield Base Introduction',
+            description: 'A curated threat intelligence and disposable email database powering security and anti-abuse features across the Riavzon ecosystem. Used by the bot detector and the IAM service',
+            href: '/llms/shield-base.md'
+          },
+          {
+            title: 'Shield Base Repo',
+            description: 'The repository containing the source code and data for Shield Base.',
+            href: 'https://github.com/Sergo706/shield-base-cli'
+          },
+          {
             title: 'Identity and Access Management (IAM) Repo',
             description: 'The repository containing the source code of the IAM component',
             href: 'https://github.com/Sergo706/auth'

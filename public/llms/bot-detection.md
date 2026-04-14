@@ -43,3 +43,11 @@ Rather than binary blocks that often cause false positives for edge-case legitim
 4. Penalties range from temporary tarpits to permanent IP/User-Agent bans across the ecosystem.
 
 *Note: Verified Good Bots (Google, Bing) explicitly bypass this scoring mechanism to ensure uninterrupted SEO indexing.*
+
+## Links
+
+- Repository: https://github.com/Sergo706/botDetector
+- Package: https://www.npmjs.com/package/@riavzon/bot-detector
+- Full Docs Users: https://docs.riavzon.com/docs/bot-detection
+- Full Docs LLMS: https://docs.riavzon.com/llms-full.txt
+- mmdbctl: https://github.com/ipinfo/mmdbctl

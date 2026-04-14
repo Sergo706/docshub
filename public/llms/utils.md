@@ -43,3 +43,11 @@ import { ensureArray, miniCache } from '@sergo/utils';
 
 const parsedTags = ensureArray(rawTagsInput);
 ```
+
+## Links
+
+- Repository: https://github.com/Sergo706/utils
+- Package: https://www.npmjs.com/package/@riavzon/utils
+- Full Docs for Users: https://docs.riavzon.com/docs/utils
+- Full Docs for LLMS: https://docs.riavzon.com/llms-full.txt
+- mmdbctl: https://github.com/ipinfo/mmdbctl

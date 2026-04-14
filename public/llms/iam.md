@@ -43,3 +43,11 @@ The IAM module isn't just about verifying passwords. It implements a defense-in-
 - **Magic Links & Passwordless:** Robust implementation of temporary, cryptographic links for passwordless authentication and account recovery workflows.
 - **Multi-Factor Authentication (MFA):** Email-based MFA flows tied to specific visitor fingerprints and "canary cookies" to prevent session hijacking during the 2FA window.
 - **Advanced Rate Limiting:** Comprehensive rate-limiting engine backed by dedicated MySQL connection pools. It supports IP-based, email-based, and composite tracking to thwart distributed brute-force attacks via burst/sustained limits.
+
+## Links
+
+- Repository: https://github.com/Sergo706/auth
+- Package: https://www.npmjs.com/package/@riavzon/auth
+- Full Docs for Users: https://docs.riavzon.com/docs/iam
+- Full Docs for LLMS: https://docs.riavzon.com/llms-full.txt
+- mmdbctl: https://github.com/ipinfo/mmdbctl

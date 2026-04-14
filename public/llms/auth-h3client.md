@@ -60,3 +60,11 @@ export default defineNuxtConfig({
   }
 })
 ```
+
+## Links
+
+- Repository: https://github.com/Sergo706/auth-H3Client
+- Package: https://www.npmjs.com/package/@riavzon/auth-h3client
+- Full Docs for Users: https://docs.riavzon.com/docs/auth-h3client
+- Full Docs for LLMS: https://docs.riavzon.com/llms-full.txt
+- mmdbctl: https://github.com/ipinfo/mmdbctl
