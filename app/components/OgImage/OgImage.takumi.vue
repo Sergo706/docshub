@@ -33,7 +33,7 @@ const accentGlow = 'rgba(245, 158, 11, 0.06)';
 <template>
   <div
     :style="{
-      width: '1200px',
+      width: '100%',
       height: '630px',
       display: 'flex',
       flexDirection: 'column',
@@ -42,7 +42,7 @@ const accentGlow = 'rgba(245, 158, 11, 0.06)';
       backgroundColor: bg,
       position: 'relative',
       overflow: 'hidden',
-      fontFamily: 'Inter, system-ui, sans-serif',
+      fontFamily: 'Inter',
     }"
   >
     <div
@@ -88,7 +88,6 @@ const accentGlow = 'rgba(245, 158, 11, 0.06)';
         flexDirection: 'column',
         gap: '24px',
         position: 'relative',
-
         flex: '1',
         justifyContent: 'center',
       }"
@@ -98,14 +97,13 @@ const accentGlow = 'rgba(245, 158, 11, 0.06)';
           fontSize: title.length > 40 ? '52px' : '64px',
           fontWeight: '700',
           color: textPrimary,
-          lineHeight: '1.15',
+          lineHeight: '1.2',
           letterSpacing: '-0.02em',
           maxWidth: '1000px',
+          display: 'flex',
+          flexDirection: 'column',
           overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          display: '-webkit-box',
-          WebkitLineClamp: '3',
-          WebkitBoxOrient: 'vertical',
+          maxHeight: title.length > 40 ? '190px' : '230px', 
         }"
       >
         {{ title }}
@@ -119,11 +117,10 @@ const accentGlow = 'rgba(245, 158, 11, 0.06)';
           color: textSecondary,
           lineHeight: '1.5',
           maxWidth: '850px',
+          display: 'flex',
+          flexDirection: 'column',
           overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          display: '-webkit-box',
-          WebkitLineClamp: '2',
-          WebkitBoxOrient: 'vertical',
+          maxHeight: '84px',
         }"
       >
         {{ description }}

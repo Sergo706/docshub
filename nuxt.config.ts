@@ -91,6 +91,7 @@ export default defineNuxtConfig({
   },
   ogImage: {
     zeroRuntime: true,
+    componentDirs: ['app/components/OgImage']
   },
 
   llms: {

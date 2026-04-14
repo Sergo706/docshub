@@ -57,7 +57,7 @@ useSchemaOrg([
 ]);
 
 if (import.meta.server) {
-  defineOgImageComponent('OgImage', {
+  defineOgImage('Image', {
     title: 'Riavzon Ecosystem',
     description: 'Centralized documentation for the Riavzon ecosystem',
   });

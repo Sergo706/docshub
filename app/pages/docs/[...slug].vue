@@ -33,7 +33,7 @@ useSchemaOrg([
 ]);
 
 if (import.meta.server) {
-  defineOgImageComponent('OgImage', {
+  defineOgImage('Image', {
     title: page.value.title,
     description: page.value.description,
   });
