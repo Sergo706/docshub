@@ -8,14 +8,13 @@ const route = useRoute();
 const { data: navLinks } = await useAsyncData<NavigationCollection>('navLinks', async () => {
   return await queryCollection('navigationMenu').first() as unknown as NavigationCollection;
 });
-provide('navLinks', navLinks);
 
 const baseNavPath = computed(() => {
   const parts = parsePath(route.path).pathname.split('/');
   return parts.slice(0, 3).join('/');
 });
 
-const { data } = await useAsyncData<ContentNavigationItem[]>('sidebar_docs_navigation', async () => {
+const { data } = await useAsyncData<ContentNavigationItem[]>(`sidebar_docs_navigation_${baseNavPath.value}`, async () => {
     if (baseNavPath.value.startsWith('/docs')) {
         return await queryCollectionNavigation('docs').where('path', 'LIKE', `%${baseNavPath.value}%`);
     } else if (baseNavPath.value.startsWith('/blog')) {
@@ -24,6 +23,8 @@ const { data } = await useAsyncData<ContentNavigationItem[]>('sidebar_docs_navig
     return [] as ContentNavigationItem[];
 }, { watch: [baseNavPath] });
 
+
+provide('navLinks', navLinks);
 provide('sidebar_docs_navigation', data);
 
 </script>

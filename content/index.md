@@ -1,6 +1,6 @@
 ---
-title: Home
-description: Docshub Landing Page
+title: Distributed Authentication & Security
+description: Drop-in authentication for Nuxt, Nitro, and H3. IAM service, BFF gateway, and bot detection — all wired together.
 ---
 
 
@@ -8,7 +8,7 @@ description: Docshub Landing Page
 ---
 headline: Riavzon Ecosystem
 title: Distributed Authentication & Security
-description: A modular infrastructure stack for Node.js and edge frameworks.
+description: Drop-in authentication for Nuxt, Nitro, and H3. IAM service, BFF gateway, and bot detection — all wired together.
 orientation: horizontal
 ---
 

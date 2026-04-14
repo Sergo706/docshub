@@ -39,6 +39,14 @@
         "badge": "Security"
       },
       {
+        "label": "Shield Base",
+        "icon": "i-lucide-database-zap",
+        "to": "/docs/shield-base",
+        "description": "CLI and programmatic toolkit for compiling offline-ready IP intelligence databases from BGP, GeoIP, Tor, FireHOL, and other public threat feeds.",
+        "github": "https://github.com/Sergo706/shield-base-cli",
+        "badge": "Security"
+      },
+      {
         "label": "Utils",
         "icon": "i-lucide-wrench",
         "to": "/docs/utils",

@@ -1,5 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
+import { defineWebPage, useSchemaOrg } from '@unhead/schema-org/vue';
 
 definePageMeta({
   layout: 'default'
@@ -22,13 +23,27 @@ const posts = computed(() => {
   return { featured, regular: rest };
 });
 
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'CollectionPage',
+    name: 'Riavzon Blog',
+    description: 'Latest articles from the Riavzon ecosystem',
+  }),
+]);
 
+if (import.meta.server) {
+  defineOgImageComponent('OgImage', {
+    title: page.value?.title,
+    description: page.value?.description,
+  });
+}
 </script>
 
 <template>
-  <Meta
+  <SeoMetadata
     v-if="page"
     :page="page"
+    :is-writing="false"
   />
   <UPageBody v-if="page">
     <UPageHeader
