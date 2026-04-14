@@ -53,8 +53,9 @@ const items = computed<DropdownMenuItem[]>(() => [
       @click="() => copyText(props.content)"
     />
 
-    <UDropdownMenu :items="items"
-    size="sm"
+    <UDropdownMenu
+      :items="items"
+      size="sm"
     >
       <UButton
         color="neutral"

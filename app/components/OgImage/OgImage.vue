@@ -3,6 +3,7 @@ import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
   title?: string
+  // eslint-disable-next-line vue/require-default-prop
   description?: string
   colorMode?: 'dark' | 'light'
   siteName?: string

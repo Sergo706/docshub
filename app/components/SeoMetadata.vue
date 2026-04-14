@@ -16,6 +16,7 @@ interface ProfileConfig {
 const { page, isWriting, image } = defineProps<{
   page: PageCollectionItemBase | BlogCollectionItem
   isWriting: boolean
+  // eslint-disable-next-line vue/require-default-prop
   image?: string,
 }>();
 
@@ -71,10 +72,11 @@ if (image) {
 }
 if (isWriting && "date" in page) {
   useSeoMeta({ 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     articleModifiedTime: page.date ?? '',
     articleTag: page.tags,
     articlePublishedTime: page.date,
-  })
+  });
 }
 </script>
 
