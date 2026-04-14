@@ -35,8 +35,8 @@ jobs:
       - uses: actions/checkout@v4
       - run: corepack enable
       
-      - run: npx nypm install
-      - run: rm -rf .nuxt .data dist
+      - run: rm -rf .nuxt .data dist .output node_modules
+      - run: npx nypm install && npm install
       - run: npm run build
         env:
           NITRO_PRESET: github_pages
