@@ -36,6 +36,7 @@ jobs:
       - run: corepack enable
       
       - run: npx nypm install
+      - run: rm -rf .nuxt .data dist
       - run: npm run build
         env:
           NITRO_PRESET: github_pages
