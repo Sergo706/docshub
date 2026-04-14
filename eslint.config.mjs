@@ -1,4 +1,4 @@
-import { defineStrictVueConfig } from '@sergo/utils/eslint/strict/vue';
+import { defineStrictVueConfig } from '@riavzon/utils/eslint/strict/vue';
 
 export default defineStrictVueConfig({
     rootDir: import.meta.dirname,
