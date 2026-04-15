@@ -81,6 +81,7 @@ export default defineNuxtConfig({
     url: 'https://docs.riavzon.com',
     name: 'Riavzon Ecosystem',
     description: 'Centralized documentation for the Riavzon ecosystem',
+    indexable: true,
     defaultLocale: 'en',
   },
   sitemap: {
