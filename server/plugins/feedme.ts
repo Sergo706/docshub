@@ -40,7 +40,7 @@ export default defineNitroPlugin((nitroApp: NitroApp) => {
     const absStr = typeof abs === 'string' ? abs : src;
     const absWithExt = ensureImageExtension(absStr, '.jpeg');
     return {
-      url: absWithExt,
+      url: absWithExt.replace(/&(?!amp;|lt;|gt;|quot;|apos;)/g, '&amp;'),
       length: FALLBACK_LENGTH,
       type: resolveMime(absWithExt),
     };
@@ -69,7 +69,7 @@ export default defineNitroPlugin((nitroApp: NitroApp) => {
     let length = typeof map.length === 'number' && Number.isFinite(map.length) ? map.length : undefined;
     length ??= FALLBACK_LENGTH;
 
-    return { url: absWithExt, type, length } as { url: string; type: string; length: number };
+    return { url: absWithExt.replace(/&(?!amp;|lt;|gt;|quot;|apos;)/g, '&amp;'), type, length } as { url: string; type: string; length: number };
   };
 
   const normalizeItem = (opts: { item: ContentItemWrapper<FeedItem> }): void => {
