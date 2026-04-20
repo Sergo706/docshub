@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+
+@media screen and (width < 1024px) {
+  :root, html, body {
+    overflow-x: hidden !important;
+  }
+}
+
 @theme static {
   --color-riavzon-50: #FAF9F8;
   --color-riavzon-100: #F4F2F0;
