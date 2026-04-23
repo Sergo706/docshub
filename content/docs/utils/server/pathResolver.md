@@ -89,10 +89,10 @@ if (localConfigPath) {
 }
 ```
 
-::callout{icon="i-lucide-info" color="info"}
+::note
 `searchDirs` are resolved relative to the project root in the order provided. The first directory containing a matching file wins, so list higher-priority directories first.
 ::
 
-::callout{icon="i-lucide-alert-triangle" color="warning"}
+::warning
 Both functions are designed for server-side use only. They rely on `fs.existsSync` and `path.resolve` from Node.js built-ins and will not work in browser or edge environments.
 ::
