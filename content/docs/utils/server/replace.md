@@ -88,7 +88,7 @@ export async function replaceDirContent(existentDir: string, newDir: string): Pr
 
 ---
 
-### `exists`
+## `exists`
 
 This utility simplifies path verification by wrapping `fs.access`. Rather than requiring the caller to handle caught exceptions, it returns a boolean. It is designed to verify both presence and the current process's permission to interact with the file or directory.
 
