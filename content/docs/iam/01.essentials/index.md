@@ -190,7 +190,7 @@ The IAM service is composed of several interconnected subsystems. Each one is de
   ::UPageCard
   ---
   title: Database
-  description: MySQL schema organization, connection pools, hashing utilities, and in-memory caches across three tables, two pool types, and an LRU access token store.
+  description: MySQL schema organization, connection pools, hashing utilities, and in-memory caches across four IAM tables, two pool types, and an LRU access token store.
   icon: i-lucide-database
   to: /docs/iam/essentials/database
   ---
