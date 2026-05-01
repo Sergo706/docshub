@@ -38,7 +38,7 @@ bun add @riavzon/auth-h3client
 
 ## Nuxt module setup
 
-If you are using Nuxt, use the dedicated module. It handles all configuration, middleware, and auto-imports for you.
+If you are using Nuxt, use the dedicated module. It handles auto-imports and can register the bundled middleware for you, while your Nitro plugin provides the runtime configuration.
 
 Register the module in `nuxt.config.ts`. This enables the auto-import of all server utilities and client composables, and optionally registers the global security middleware.
 
@@ -47,10 +47,26 @@ export default defineNuxtConfig({
   modules: ['auth-h3client/module'],
   authH3Client: {
     enableMiddleware: true,
-    authStatusUrl: '/auth/users/authStatus'
+    authStatusUrl: '/api/auth/users/authStatus',
+    registerApiRoute: {
+      path: '/api/auth/api-tokens'
+    }
   }
 })
 ```
+
+::warning
+If your Nuxt app also exposes machine-to-machine routes protected with
+`defineAuthenticatePublicApi`, do not run the global auth middleware on those
+paths. That middleware runs `isIPValid`, `botDetectorMiddleware`, and
+`generateCsrfCookie`, which regular browser auth requests still need, but
+repeated API-key verification traffic can be rate-limited or banned by the bot
+detector. In mixed apps, set `enableMiddleware: false` and register your own
+server middleware so those API-key routes bypass the browser middleware chain.
+The module still registers the auth status route and, when configured, the
+optional API token list route.
+::
+
 Read the [Nuxt Module Documentation](/docs/auth-h3client/getting-started/nuxt) for full configuration and usage.
 
 
@@ -212,10 +228,12 @@ configuration({
 ```
 ## Verify the setup
 
-Start your development server and make a request to the auth status endpoint. With no active session the response should be:
+Start your development server and make a request to the auth status endpoint.
+Under the Nuxt module, the default path is `/api/auth/users/authStatus`. With
+no active session the response should be:
 
 ```bash [Terminal]
-curl http://localhost:3000/auth/users/authStatus
+curl http://localhost:3000/api/auth/users/authStatus
 ```
 
 ```json

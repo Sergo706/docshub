@@ -10,7 +10,7 @@ Server-side exports are available from `auth-h3client/v1` (H3 v1) and `auth-h3cl
   ::UPageCard
   ---
   title: Routes Reference
-  description: Every HTTP route registered by the module with its middleware chain, request body, cookies, and response shapes.
+  description: Every HTTP route registered by the module, plus the standalone auth status and optional API-token list handlers, with middleware chains, cookies, and response shapes.
   icon: i-lucide-route
   to: /docs/auth-h3client/api/controllers
   ---
@@ -19,7 +19,7 @@ Server-side exports are available from `auth-h3client/v1` (H3 v1) and `auth-h3cl
   ::UPageCard
   ---
   title: Middleware Reference
-  description: All authentication guards, CSRF middleware, bot detection middleware, request validation, event handler wrappers, and error utilities with Reads, Sets, and Responses tables.
+  description: All authentication guards, CSRF middleware, bot detection middleware, API-key verification, API-token management wrappers, request validation, and error utilities with Reads, Sets, and Responses tables.
   icon: i-lucide-layers
   to: /docs/auth-h3client/api/middleware
   ---
@@ -39,7 +39,7 @@ Server-side exports are available from `auth-h3client/v1` (H3 v1) and `auth-h3cl
   ::UPageCard
   ---
   title: Utilities
-  description: Server utilities for token metadata, user data caching, server-to-server requests, HMAC signing, cookie management, OAuth helpers, image validation, and more.
+  description: Server utilities for token metadata, user data caching, server-to-server requests, API-key forwarding, HMAC signing, cookie management, OAuth helpers, image validation, and more.
   icon: i-lucide-wrench
   to: /docs/auth-h3client/api/utilities
   ---

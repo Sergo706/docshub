@@ -4,11 +4,11 @@ description: Gateway authentication module for Nuxt and Nitro applications that 
 icon: i-lucide-layers
 ---
 
-`@riavzon/auth-h3client` is a gateway authentication module for [Nuxt](https://nuxt.com/) and [Nitro](https://nitro.unjs.io/) applications. It sits between the browser and the [IAM service](/docs/iam) and handles every authentication operation that belongs in the server layer of your frontend: session hydration, access token rotation, CSRF enforcement, OAuth code exchange, magic link handling, bot detection, and inter-service request signing.
+`@riavzon/auth-h3client` is a gateway authentication module for [Nuxt](https://nuxt.com/) and [Nitro](https://nitro.unjs.io/) applications. It sits between the browser and the [IAM service](/docs/iam) and handles every authentication operation that belongs in the server layer of your frontend: session hydration, access token rotation, CSRF enforcement, OAuth code exchange, magic link handling, bot detection, API token verification, and inter-service request signing.
 
 Its the Backend for frontend for the [IAM service](/docs/iam/essentials/bff) service.
 
-The module ships pre-built H3 controllers for authentication flows, MFA flows, and a OAuth client to connect to various providers. Every controller proxies to the IAM service over an authenticated connection with optional mTLS and HMAC request signing.
+The module ships pre-built H3 controllers for authentication flows, MFA flows, API token inventory routes, and an OAuth client to connect to various providers. It also exports event handler wrappers for API token verification and management. Every controller proxies to the IAM service over an authenticated connection with optional mTLS and HMAC request signing.
 
 Both H3 v1 and H3 v2 are supported and ship the same controller and utility surface.
 
@@ -96,6 +96,14 @@ Auth H3 Client is designed to run as the server layer of a Nuxt or Nitro applica
   title: HMAC Inter-service Auth
   description: Every request the module sends to the IAM service can be signed with a shared secret and a timestamp. The IAM service rejects any request that does not carry a valid signature, ensuring that only known gateway instances can reach it.
   icon: i-lucide-fingerprint
+  ---
+  ::
+
+  ::UPageCard
+  ---
+  title: API Tokens
+  description: Built-in wrappers verify `X-API-KEY` headers against the IAM service, expose authenticated token inventory routes, and proxy token creation, rotation, revocation, privilege changes, and IP restriction updates through typed H3 handlers.
+  icon: i-lucide-key-square
   ---
   ::
 
