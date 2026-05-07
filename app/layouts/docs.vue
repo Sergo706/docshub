@@ -141,7 +141,7 @@ const links = computed<PageLink[]>(() => [{
         <template #links>
           <LayoutActionsDropdown 
             :content="page?.rawbody || page?.description || ''"
-            :md-url="`https://raw.githubusercontent.com/Sergo706/docshub/main/content/docs/${page?.stem ?? ''}.md`"
+            :md-url="`https://raw.githubusercontent.com/Sergo706/docshub/main/content/${page?.stem ?? ''}.md`"
           />
         </template>
       </UPageHeader>
