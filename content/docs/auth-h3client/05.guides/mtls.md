@@ -45,7 +45,11 @@ certs/
 └── client.key     # Client private key (clientKeyPath)
 ```
 
-The IAM service must be configured with the same CA certificate to verify the client certificate. See [IAM mTLS](/docs/iam/guides/mtls) for the server-side setup.
+The IAM service must be configured with the same CA certificate to verify the client certificate. 
+
+::note
+That should be configured in the proxy layer
+::
 
 ---
 
