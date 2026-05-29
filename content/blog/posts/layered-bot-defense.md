@@ -86,7 +86,6 @@ FireHOL maintains multiple threat list tiers. Shield Base compiles all of them i
 |---|---|---|
 | User-agent patterns | `useragent-db/useragent.mdb` | Known bot, scraper, and tool user-agent signatures with severity ratings |
 | Disposable emails | `email-db/disposable-emails.mdb` | Domain blocklist for temporary and disposable email providers |
-| JA4+ fingerprints | `ja4-db/ja4.mdb` | TLS client fingerprints mapped to known tool signatures |
 
 ### Running Shield Base
 
@@ -102,7 +101,7 @@ pnpm shield-base --all --parallel
 pnpm shield-base --bgp --geo --tor --l1 --l2
 
 # Compile only LMDB pattern databases
-pnpm shield-base --useragent --email --ja4
+pnpm shield-base --useragent --email
 ```
 
 ```bash [npm]
@@ -113,7 +112,7 @@ npm run shield-base --all --parallel
 npm run shield-base --bgp --geo --tor --l1 --l2
 
 # Compile only LMDB pattern databases
-npm run shield-base --useragent --email --ja4
+npm run shield-base --useragent --email
 ```
 
 ::
@@ -132,7 +131,7 @@ Bot Detector is a middleware factory. You call `configuration(config)` once at s
 
 ### Loading the Databases
 
-The `DataSources` class loads all Shield Base outputs at initialization. It opens 11 MMDB readers (ASN, city, country, good bots, Tor, proxy, and all five FireHOL levels) and 2 LMDB readers (user-agent patterns and JA4 fingerprints). It also accepts optional banned and high-risk MMDB files for custom enforcement lists. All readers stay open and memory-resident for the lifetime of the process. There are no per-request file operations — every lookup is an in-memory binary search.
+The `DataSources` class loads all Shield Base outputs at initialization. It opens 11 MMDB readers (ASN, city, country, good bots, Tor, proxy, and all five FireHOL levels) and 1 LMDB reader (user-agent patterns). It also accepts optional banned and high-risk MMDB files for custom enforcement lists. All readers stay open and memory-resident for the lifetime of the process. There are no per-request file operations — every lookup is an in-memory binary search.
 
 ### Scoring Mechanics
 
@@ -255,12 +254,9 @@ Human browsing intervals are naturally irregular. Page load times, reading time,
 |---|---|
 | Headless browser detected (Puppeteer, Selenium, Playwright, PhantomJS) | 100 |
 | User-agent shorter than 10 characters | 80 |
-| TLS fingerprint mismatch (JA4 check) | 60 |
 | Header anomaly score too high | variable |
 | Path traversal attempt detected | variable |
 | XSS scripting attempt detected | variable |
-
-The TLS fingerprint check queries `ja4.mdb` to compare the client's TLS handshake fingerprint against the user-agent it claims. A request claiming to be Chrome 120 but presenting the TLS fingerprint of a Node.js `https` client scores 60 points immediately. This is one of the hardest signals for bots to spoof because it requires intercepting and rewriting the TLS layer.
 
 **16. Geolocation Validation** — penalizes missing geolocation data across nine dimensions: country, region, city, latitude/longitude, timezone, subregion, phone prefix, district, and continent. Each missing dimension scores 10 points. A request from an IP with no geolocation coverage can accumulate up to 90 points from this checker alone, making it trivially over the ban threshold when combined with any other signal. The checker also supports a configurable banned-country list.
 
@@ -377,9 +373,9 @@ Now consider a more sophisticated bot — one that uses a real browser, a real r
 
 - Behavior Rate: The bot fires at exactly 4-second intervals. After 5 requests, the velocity fingerprint computes CV = 0.02. +40. Running total: 50-60.
 - Session Coherence: The bot navigates directly to `/auth/user/login` without going through the home page first. The `Referer` header is absent on what looks like same-origin navigation. +20. Running total: 70-80.
-- User-Agent and Header Analysis: The JA4 TLS fingerprint matches Python's `urllib3` library, not Chrome. +60. Running total: 130+.
+- User-Agent and Header Analysis: Header mismatch and lack of acceptable HTTP configurations indicate automated access. +60. Running total: 130+.
 
-**The pipeline stops at the heavy phase.** Even a well-configured bot that passes the cheap phase reveals itself through timing regularity, navigation patterns, and TLS fingerprinting.
+**The pipeline stops at the heavy phase.** Even a well-configured bot that passes the cheap phase reveals itself through timing regularity, navigation patterns, and header analysis.
 
 ---
 

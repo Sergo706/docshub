@@ -4,7 +4,7 @@ description: Every built-in data source, what database it produces, the upstream
 icon: i-lucide-database
 ---
 
-Shield Base fetches data from 14 built-in sources across five categories: network routing, geographic location, anonymity and proxy detection, threat intelligence, and application-layer fingerprints. Each source produces one or more binary database files in either MMDB format (IP range lookups) or LMDB format (key-value lookups).
+Shield Base fetches data from 13 built-in sources across five categories: network routing, geographic location, anonymity and proxy detection, threat intelligence, and application-layer fingerprints. Each source produces one or more binary database files in either MMDB format (IP range lookups) or LMDB format (key-value lookups).
 
 ---
 
@@ -21,7 +21,6 @@ Shield Base fetches data from 14 built-in sources across five categories: networ
 | [FireHOL Threats](./firehol) | `--l1` `--l2` `--l3` `--l4` `--anonymous` | `firehol_*.mmdb` | MMDB |
 | [Suspicious User-Agents](./useragent) | `--useragent` | `useragent-db/useragent.mdb` | LMDB |
 | [Disposable Emails](./email) | `--email` | `email-db/disposable-emails.mdb` | LMDB |
-| [JA4+ Fingerprints](./ja4) | `--ja4` | `ja4-db/ja4.mdb` | LMDB |
 
 ---
 

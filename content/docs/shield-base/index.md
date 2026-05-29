@@ -33,8 +33,8 @@ Shield Base is the data layer that powers the [Bot Detector](/docs/bot-detection
 
   ::UPageCard
   ---
-  title: 14 Built-in Sources
-  description: BGP/ASN, City, Country, Tor, Proxy, FireHOL threat levels (L1-L4 + Anonymous), verified crawlers, suspicious user-agents, disposable emails, and JA4+ fingerprints.
+  title: 13 Built-in Sources
+  description: BGP/ASN, City, Country, Tor, Proxy, FireHOL threat levels (L1-L4 + Anonymous), verified crawlers, suspicious user-agents, and disposable emails.
   icon: i-lucide-database
   ---
   ::
