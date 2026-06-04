@@ -66,6 +66,7 @@ const navigation = computed<ContentNavigationItem[]>(() => {
     return null;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function mapNodes(nodes: ContentNavigationItem[], isRoot = false): ContentNavigationItem[] {
     return nodes.map((node) => {
       const pageMeta = node.page as { icon?: string } | undefined;
