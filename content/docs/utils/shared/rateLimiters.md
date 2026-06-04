@@ -167,7 +167,11 @@ In this scenario, the Base Duration is **5 minutes** (60,000ms * 5). Because the
 | **Tier 2** (2nd Ban) | **20m** `(5m * 2^2)` | **40m** `(20m * 2)` | **1 hour** |
 | **Tier 3** (3rd Ban) | **40m** `(5m * 2^3)` | **80m** `(40m * 2)` | **2 hours** |
 
+> If the user hits Tier 2, they are locked out for 20 minutes. After 20 minutes, they can attempt to log in again. However, if they trigger another 5 violations within the next 40 minutes (the Grace Period), they immediately jump to Tier 3. If they behave perfectly for those 40 minutes, their history is erased, and their next offense starts completely fresh at Tier 1.
+
+::note
 This setup protects your database, but ensures that a real user who forgot their password isn't punished for days just because they tried a few too many times.
+::
 
 ---
 
