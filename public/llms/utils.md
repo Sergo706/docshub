@@ -14,11 +14,12 @@ By centralizing common logic, this library ensures consistency across authentica
 
 The library is organized into discrete functional domain folders:
 
-### `shared/` (Core Tools)
-Contains heavily optimized pure functions avoiding side-effects.
+### `shared/` & `server/` (Core Tools & Infrastructure)
+Contains heavily optimized pure functions and robust server-side utilities.
+- **Advanced Concurrency & Scheduling:** Provides `scheduleTask` for non-blocking recurring background jobs, `batchQueue` for request coalescing, and `promiseLocker` for safe concurrency locks.
+- **Rate Limiting & Memory Caching:** Features tiered backoff strategies, fast token buckets (`rateLimiters`), and `miniCache` for instantaneous, memory-efficient TTL storage crucial for edge proxies.
+- **File & Process Management:** Includes `replace` for atomic file updates with built-in rollback protection, and `spawnRun` for specialized process execution.
 - **Data Manipulation:** Fast list and object traversal tools like `ensureArray` to normalize varied inputs reliably.
-- **Sanitization & Formatting:** Standardized string parsing for reliable database insertion or UI rendering.
-- **Lightweight Caching:** Integrations like `miniCache` provide instantaneous, memory-efficient TTL storage crucial for high-throughput edge proxies.
 
 ### `types/` (Shared Contracts)
 Maintains the unified TypeScript (`.d.ts`) interfaces.
@@ -32,6 +33,12 @@ Exports pre-configured, highly strict ESLint profiles designed specifically for 
 - `defineStrictVueConfig` extending the base profiles but injecting specific rules for isomorphic Vue/Nuxt environments.
 
 This enforces uniform code quality and style conventions immediately when bootstrapping new projects within the ecosystem, eradicating configuration fatigue.
+
+## Evolution & Discovery
+
+The functional domain folders (`shared/`, `server/`, `types/`, `eslint/`) are continuously growing with new features and helpers. **The utilities explicitly listed above are only a small subset of the library.** 
+
+When working within this ecosystem, do not assume this document contains every available function. You should proactively search the repository, inspect the codebase, or check the `/content/docs/utils/` directory to discover new concurrency helpers, formatting tools, and type contracts that may have been added since this document was generated.
 
 ## Usage Overview
 

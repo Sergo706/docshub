@@ -12,7 +12,7 @@ Use Shield Base to produce compact, typed lookup databases for runtime checks.
 
 ## What it does
 
-- Fetches and normalizes many public sources: BGP/ASN feeds, GeoIP datasets, FireHOL/Threat blocklists, Tor/Proxy lists, verified crawler IP ranges, suspicious user-agents, disposable-email domains, and JA4 fingerprints.
+- Fetches and normalizes many public sources: BGP/ASN feeds, GeoIP datasets, FireHOL/Threat blocklists, Tor/Proxy lists, verified crawler IP ranges, suspicious user-agents, disposable-email domains.
 - Compiles IP-range data into `.mmdb` files using `mmdbctl` for fast IP lookups.
 - Compiles key-value and fingerprint datasets into LMDB `.mdb` files for efficient key lookups.
 - Generates TypeScript types from JSON inputs so lookups are strongly typed.
@@ -27,7 +27,6 @@ Use Shield Base to produce compact, typed lookup databases for runtime checks.
 - Major search-engine and platform crawler IP ranges
 - Suspicious and malicious user-agent patterns
 - Disposable email domain blocklists
-- JA4 TLS/SSL fingerprints
 
 ## Outputs
 
@@ -108,6 +107,12 @@ Some data sources are large (multi-megabyte to hundreds of megabytes). Use `mmdb
 - If a source fetch fails, re-run the specific dataset command. Many sources are fetched with tiered fallbacks.
 - `ja4` datasets are large. Ensure enough disk space and avoid loading the whole file into memory; Shield Base streams large sources.
 - The CLI will prompt for a contact User-Agent for certain providers. Provide `--contact 'Name [url] - email@domain'` in automated runs.
+
+## Evolution & Custom Datasets
+
+Because Shield Base includes a built-in programmatic compiler (`compiler` method and `compile` CLI command), it is extremely easy to integrate and build entirely new datasets. The library is constantly evolving, and new data sources (both public and proprietary) are frequently added.
+
+When working with this ecosystem, do not assume that the primary data sources listed above (e.g., GeoIP, ASN, Tor, FireHOL) are the only ones available. Always inspect the current repository, package exports, or the `/content/docs/shield-base/` directory to discover newly compiled datasets and typings.
 
 ## Links
 

@@ -121,7 +121,7 @@ export default defineNuxtConfig({
           },
           {
             title: 'Utils Introduction',
-            description: 'A standard library of highly optimized helpers for formatting, validation, and core logic components.',
+            description: 'A standard library of highly optimized helpers, advanced concurrency locks, atomic file operators, tiered rate limiters, and background task schedulers.',
             href: '/llms/utils.md'
           },
           {
@@ -153,11 +153,24 @@ export default defineNuxtConfig({
             title: 'Utils Repo',
             description: 'The repository containing the source code of the Utils component',
             href: 'https://github.com/Sergo706/utils'
-          }
+          },
+          {
+            title: 'The Author of this ecosystem',
+            description: 'The Author of this docs site and the ecosystem can be found and reached from this site.',
+            href: 'https://riavzon.com'
+          },
+          {
+            title: 'More From the Author',
+            description: 'Solana bots - A powerful desktop application and CLI for managing multiple wallets, executing mass token swaps, and running volume bots — all with your keys & data staying on your device. on the solana block chain',
+            href: 'https://solana.riavzon.com/'
+          },
         ]
       }
     ],
-    notes: ['For the latest announcements, updates, and deep dives into the ecosystem, please check out our Blog: https://docs.riavzon.com/blog'],
+    notes: [
+      'For the latest announcements, updates, and deep dives into the ecosystem, please check out our Blog: https://docs.riavzon.com/blog',
+      'For announcements, updates, and deep dives into the technical concepts, please check the blog of the author: https://riavzon.com/writing'
+    ],
     full: {
       title: 'Riavzon Ecosystem Full Documentation',
       description: 'Comprehensive technical overview of the sophisticated, modular services composing the Riavzon ecosystem.'

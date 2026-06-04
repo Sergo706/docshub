@@ -50,4 +50,4 @@ Rather than binary blocks that often cause false positives for edge-case legitim
 - Package: https://www.npmjs.com/package/@riavzon/bot-detector
 - Full Docs Users: https://docs.riavzon.com/docs/bot-detection
 - Full Docs LLMS: https://docs.riavzon.com/llms-full.txt
-- mmdbctl: https://github.com/ipinfo/mmdbctl
+
