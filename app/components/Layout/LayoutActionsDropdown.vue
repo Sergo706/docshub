@@ -8,11 +8,8 @@ const props = defineProps<{
 }>();
 
 const copyText = useCopy();
-const currentUrl = ref('');
-
-onMounted(() => {
-  currentUrl.value = `https://docs.riavzon.com${window.location.pathname}`;
-});
+const route = useRoute();
+const currentUrl = computed(() => `https://docs.riavzon.com${route.path}`);
 
 
 const items = computed<DropdownMenuItem[]>(() => [

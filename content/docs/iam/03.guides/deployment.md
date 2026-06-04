@@ -1,7 +1,7 @@
 ---
 title: Deployment
 description: Different way to deploy the auth service.
-icon: i-lucide-terminal
+icon: i-lucide-rocket
 ---
 
 The best way to deploy the service is using the public docker image.

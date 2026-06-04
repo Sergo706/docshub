@@ -1,7 +1,7 @@
 ---
 title: scheduleTask
 description: Run background jobs of the main process.
-icon: i-lucide-time
+icon: i-lucide-clock
 ---
 
 `scheduleTask` runs recurring background jobs from the main process without blocking the event loop. It is suitable for scheduled cleanup, cache refresh, and other maintenance tasks that must not overlap with themselves.

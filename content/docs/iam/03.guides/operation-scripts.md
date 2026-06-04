@@ -1,7 +1,7 @@
 ---
 title: Operation Scripts
 description: Template shell scripts for encrypting configuration, launching the IAM service container, and cleaning up sensitive files after deployment.
-icon: i-lucide-terminal
+icon: i-lucide-file-terminal
 ---
 
 The IAM service Docker image does not include startup or encryption scripts. These are template scripts you copy into your project and adapt to your deployment workflow. They handle [age](https://github.com/FiloSottile/age) key generation, configuration encryption, container orchestration, and post-launch cleanup.

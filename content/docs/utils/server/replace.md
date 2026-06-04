@@ -1,7 +1,7 @@
 ---
 title: File Replacements
 description: Server-side utilities for performing atomic file and directory updates with built-in rollback protection.
-icon: i-lucide-file-sync
+icon: i-lucide-file-cog
 ---
 
 The file replacement module provides a robust way to update local files without risking corruption. By using an atomic-swap strategy, these functions ensure that a destination file is never left in a partial or corrupted state if a write operation is interrupted or fails.

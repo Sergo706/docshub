@@ -1,7 +1,7 @@
 ---
-title: Manage Tokens
-description: Learn how to rotate, revoke, update and restrict new ip's and privileges.
-icon: i-lucide-check-circle
+title: Management
+description: Securely manage existing API tokens.
+icon: i-lucide-settings
 ---
 
 The IAM service provide a full life cycle to manage api keys, getting metadata or setting new privileges to a token.

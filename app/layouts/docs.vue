@@ -52,42 +52,38 @@ const { data: surroundData } = await useAsyncData<ContentNavigationItem[]>(
 );
 
 const navigation = computed<ContentNavigationItem[]>(() => {
-  const navArray: ContentNavigationItem[] | undefined = sidebarDocsNavigation?.value;
+  const navArray = sidebarDocsNavigation?.value;
   if (!navArray || navArray.length === 0) return [];
 
-  const items: ContentNavigationItem[] = navArray[0]?.children ?? navArray;
-  
-  const firstItem: ContentNavigationItem | undefined = items[0];
-  const firstItemChildren: ContentNavigationItem[] | undefined = firstItem?.children;
-  
-  if (firstItem && firstItemChildren && firstItemChildren.length > 0) {
-    const firstChild: ContentNavigationItem | undefined = firstItemChildren[0];
-    
-    if (firstChild) {
-      const overviewChild: ContentNavigationItem = {
-        ...firstChild,
-        title: 'Overview',
-        path: firstChild.path
-      };
-
-      const modifiedFirstItem: ContentNavigationItem = {
-        ...firstItem,
-        title: firstItem.title,
-        path: firstItem.path,
-        children: [
-          overviewChild,
-          ...firstItemChildren.slice(1)
-        ]
-      };
-
-      return [
-        modifiedFirstItem,
-        ...items.slice(1)
-      ];
+  function findNode(nodes: ContentNavigationItem[], targetPath: string): ContentNavigationItem | null {
+    for (const node of nodes) {
+      if (node.path === targetPath) return node;
+      if (node.children) {
+        const found = findNode(node.children, targetPath);
+        if (found) return found;
+      }
     }
+    return null;
   }
-  
-  return items;
+
+  function mapNodes(nodes: ContentNavigationItem[], isRoot = false): ContentNavigationItem[] {
+    return nodes.map((node) => {
+      const pageMeta = node.page as { icon?: string } | undefined;
+      const navMeta = node.meta as { icon?: string } | undefined;
+      let icon = (node.icon as string | undefined) ?? pageMeta?.icon ?? navMeta?.icon;
+      
+
+      return {
+        ...node,
+        icon,
+        children: node.children ? mapNodes(node.children, false) : undefined
+      };
+    });
+  }
+
+  const targetNode = findNode(navArray, baseNavPath.value);
+  const items = targetNode?.children ?? navArray;
+  return mapNodes(items, true);
 });
 
 const page = computed(() => pageData.value ?? null);
@@ -172,3 +168,4 @@ const links = computed<PageLink[]>(() => [{
     </UPage>
   </UContainer>
 </template>
+ 

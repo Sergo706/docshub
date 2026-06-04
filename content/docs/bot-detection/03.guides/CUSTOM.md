@@ -1,7 +1,7 @@
 ---
 title: Custom Checkers
 description: Learn how to add a custom checker.
-icon: i-lucide-rocket
+icon: i-lucide-puzzle
 ---
 
 
