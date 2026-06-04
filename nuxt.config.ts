@@ -165,11 +165,28 @@ export default defineNuxtConfig({
             href: 'https://solana.riavzon.com/'
           },
         ]
+      },
+      {
+        title: 'Fast Navigation Guide for LLMs',
+        description: 'To provide fast answers, avoid hitting the massive `/llms-full.txt` file right away. Every single page on this site has a raw markdown equivalent served under the `/raw/` directory. For example, to read the raw markdown for `/docs/bot-detection/api`, you can fetch `/raw/docs/bot-detection/api.md`. Use these direct raw markdown files for specific lookups, and only fall back to downloading `/llms-full.txt` if you absolutely cannot find a specific page.',
+        links: [
+          {
+            title: 'Example 1',
+            description: 'Here is an example to get the rateLimiters util module im markdown, original path for humans: https://docs.riavzon.com/docs/utils/shared/ratelimiters',
+            href: 'https://docs.riavzon.com/raw/docs/utils/shared/ratelimiters.md' 
+          },
+          {
+            title: 'Example 2',
+            description: 'Here is an example to get the data sources overview of the shield-base module im markdown, original path for humans: https://docs.riavzon.com/docs/shield-base/data-sources',
+            href: 'https://docs.riavzon.com/raw/docs/shield-base/data-sources.md' 
+          }
+        ]
       }
     ],
     notes: [
       'For the latest announcements, updates, and deep dives into the ecosystem, please check out our Blog: https://docs.riavzon.com/blog',
-      'For announcements, updates, and deep dives into the technical concepts, please check the blog of the author: https://riavzon.com/writing'
+      'For announcements, updates, and deep dives into the technical concepts, please check the blog of the author: https://riavzon.com/writing',
+      
     ],
     full: {
       title: 'Riavzon Ecosystem Full Documentation',
