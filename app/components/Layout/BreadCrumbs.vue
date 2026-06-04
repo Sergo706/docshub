@@ -13,5 +13,8 @@ const mapped = computed(() => {
 </script>
 
 <template>
-  <UBreadcrumb :items="mapped" /> 
+  <UBreadcrumb
+    :items="mapped"
+    :ui="{ list: 'flex-wrap mb-2' }"
+  /> 
 </template>
