@@ -4,8 +4,6 @@ description: An overview of the Riavzon ecosystem — what each module does, how
 icon: i-lucide-rocket
 ---
 
-# Introduction
-
 The Riavzon ecosystem is a set of focused Node.js modules for authentication, bot detection, and shared infrastructure. Each module has a single responsibility, and they are designed to work together as a layered stack. You can use the full stack or adopt individual modules into an existing application.
 
 ## The Stack
